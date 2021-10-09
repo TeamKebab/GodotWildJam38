@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/jump.wav-d94eb6ad27159bf77e7ba7ab65914fbd.sample"
+path="res://.import/jump2.wav-f3d71428a473cdf5ba99e752e8c1b17b.sample"
 
 [deps]
 
-source_file="res://player/jump.wav"
-dest_files=[ "res://.import/jump.wav-d94eb6ad27159bf77e7ba7ab65914fbd.sample" ]
+source_file="res://player/jump2.wav"
+dest_files=[ "res://.import/jump2.wav-f3d71428a473cdf5ba99e752e8c1b17b.sample" ]
 
 [params]
 

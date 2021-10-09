@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MC_running.wav-9c4b70fe1c2647a1cf5f85c613a8dcc5.sample"
+
+[deps]
+
+source_file="res://player/MC_running.wav"
+dest_files=[ "res://.import/MC_running.wav-9c4b70fe1c2647a1cf5f85c613a8dcc5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

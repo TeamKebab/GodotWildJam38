@@ -3,8 +3,8 @@
 [ext_resource path="res://player/lefty_rest.png" type="Texture" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
 [ext_resource path="res://player/light/light.tscn" type="PackedScene" id=3]
-[ext_resource path="res://player/Concrete_Shoes_Running.wav" type="AudioStream" id=4]
-[ext_resource path="res://player/jump.wav" type="AudioStream" id=5]
+[ext_resource path="res://player/MC_running.wav" type="AudioStream" id=4]
+[ext_resource path="res://player/jump2.wav" type="AudioStream" id=5]
 [ext_resource path="res://player/land.mp3" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]

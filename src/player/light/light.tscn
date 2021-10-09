@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://player/light/light.png" type="Texture" id=1]
 [ext_resource path="res://player/light/light.gd" type="Script" id=2]
+[ext_resource path="res://player/light/light_OFF.wav" type="AudioStream" id=3]
+[ext_resource path="res://player/light/light_ON.wav" type="AudioStream" id=4]
 
-[node name="Light2D" type="Light2D"]
+[node name="Light" type="Light2D"]
 texture = ExtResource( 1 )
 shadow_enabled = true
 script = ExtResource( 2 )
+
+[node name="TurnOnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="TurnOffSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )

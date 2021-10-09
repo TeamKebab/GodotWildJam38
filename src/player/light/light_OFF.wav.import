@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/light_OFF.wav-2e2a2b09d3561eb9d94171e31b5fa2dd.sample"
+
+[deps]
+
+source_file="res://player/light/light_OFF.wav"
+dest_files=[ "res://.import/light_OFF.wav-2e2a2b09d3561eb9d94171e31b5fa2dd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

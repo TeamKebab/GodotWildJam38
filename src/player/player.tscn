@@ -25,6 +25,9 @@ vframes = 2
 shape = SubResource( 1 )
 
 [node name="Light" parent="." instance=ExtResource( 3 )]
+shadow_gradient_length = 5.0
+shadow_filter = 5
+shadow_filter_smooth = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

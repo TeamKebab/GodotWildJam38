@@ -12,13 +12,14 @@ height = 0.0
 collision_layer = 4
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-visible = false
-texture = ExtResource( 1 )
-hframes = 2
+[node name="PlayerDetector" parent="." instance=ExtResource( 3 )]
+cast_radius = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 disabled = true
 
-[node name="PlayerDetector" parent="." instance=ExtResource( 3 )]
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 1 )
+hframes = 2

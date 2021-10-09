@@ -6,8 +6,8 @@ on:
 
 env:
     GODOT_VERSION: 3.3.4
-    EXPORT_NAME: team-kebab-gwj38
-    ITCH_GAME: the-dust-bunnies
+    EXPORT_NAME: unspoopied
+    ITCH_GAME: unspoopied
     ITCH_USER: team-kebab
 
 jobs:

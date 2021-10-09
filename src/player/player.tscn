@@ -23,3 +23,7 @@ vframes = 2
 shape = SubResource( 1 )
 
 [node name="Light2D" parent="." instance=ExtResource( 3 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true

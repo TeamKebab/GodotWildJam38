@@ -9,7 +9,7 @@ func _input(event):
 			_toggle()
 
 func _point_to(point: Vector2) -> void:
-	rotation = point.angle_to_point(global_position)
+	rotation = point.angle_to_point(get_global_transform_with_canvas().origin)
 
 func _toggle() -> void:
 	enabled = !enabled

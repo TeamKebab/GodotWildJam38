@@ -29,6 +29,7 @@ func _toggle() -> void:
 		turn_on_sound.play()
 		
 	light.enabled = !light.enabled
+	detection_area.enabled = light.enabled
 
 
 func _on_spoopy_entered(spoopy: Spoopy) -> void:

@@ -13,3 +13,6 @@ func _set_player_lives(value: int) -> void:
 
 var max_player_lives: int = 5
 
+
+func _ready() -> void:
+	_set_player_lives(max_player_lives)

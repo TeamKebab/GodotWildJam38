@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://player/player_outline.png" type="Texture" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
@@ -12,6 +12,9 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 14.1083
 height = 25.7035
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 20.4463
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -37,6 +40,14 @@ smoothing_enabled = true
 walk_stream = ExtResource( 4 )
 jump_stream = ExtResource( 5 )
 land_stream = ExtResource( 6 )
+
+[node name="DamageBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
+position = Vector2( 0, -30.227 )
+shape = SubResource( 2 )
 
 [node name="ScareSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )

@@ -30,7 +30,7 @@ onready var animation_player = $AnimationPlayer
 func _ready() -> void:
 	_set_disabled(true)
 	state_machine._change_state("Hidden")
-	hitbox.connect("body_entered", self, "_on_player_touched")
+	hitbox.connect("area_entered", self, "_on_player_touched")
 
 
 func light_on() -> void:
@@ -46,6 +46,7 @@ func identify() -> void:
 	emit_signal("identified") 
 	
 
-func _on_player_touched(player: KinematicBody2D) -> void:
+func _on_player_touched(player_damage_box: Area2D) -> void:
+	var player = player_damage_box.get_parent()
 	player.scare()
 

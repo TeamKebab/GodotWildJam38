@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-export var invulnerability_time: float = 10
+export var invulnerability_time: float = 3
 
 onready var motion = $Motion
 onready var scare_sound = $ScareSound

@@ -2,23 +2,12 @@ tool
 extends KinematicBody2D
 class_name Spoopy
 
-onready var sprite = $Sprite
-onready var collision = $CollisionShape2D
-onready var detector = $PlayerDetector
-
-func _ready() -> void:
-	_set_disabled(true)
-	detector.connect("body_entered", self, "_on_player_detected")	
+signal lit
+signal unlit
+signal identified
 
 
-func light_on() -> void:
-	print("is lit!")
-
-	
-func light_off() -> void:
-	print("is in shadooow")
-
-
+var disabled setget _set_disabled
 func _set_disabled(value: bool) -> void:
 	if value:
 		sprite.hide()
@@ -28,7 +17,28 @@ func _set_disabled(value: bool) -> void:
 		collision.disabled = false
 
 
-func _on_player_detected(body: Object) -> void:
-	print("player detected!")
-	detector.enabled = false
-	_set_disabled(false)
+onready var sprite = $Sprite
+onready var collision = $CollisionShape2D
+onready var detector = $PlayerDetector
+onready var state_machine = $StateMachine
+
+func _ready() -> void:
+	_set_disabled(true)
+	state_machine._change_state("Hidden")
+
+
+func light_on() -> void:
+	emit_signal("lit")
+
+
+func light_off() -> void:
+	emit_signal("unlit")
+
+
+func identify() -> void:
+	print("Identified!")
+	emit_signal("identified") 
+	
+
+
+

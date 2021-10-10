@@ -86,7 +86,7 @@ func _ready():
 		_set_number_of_rays(number_of_rays)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Engine.editor_hint:
 		return
 	var bodies_still_in_detection_area = []

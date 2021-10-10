@@ -23,6 +23,7 @@ range_z_max = 1012
 shadow_enabled = true
 
 [node name="DetectionArea" parent="." instance=ExtResource( 5 )]
+visible = false
 half_angle = 0.5
 detection_mask = 4
 collision_mask = 5

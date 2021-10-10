@@ -1,8 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://spoopies/bichito_cabron.png" type="Texture" id=1]
 [ext_resource path="res://spoopies/spoopy.gd" type="Script" id=2]
 [ext_resource path="res://components/raycast_overlap/raycast_overlap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://components/state_machine/state_machine.gd" type="Script" id=4]
+[ext_resource path="res://spoopies/states/hidden.gd" type="Script" id=5]
+[ext_resource path="res://spoopies/states/unlit.gd" type="Script" id=6]
+[ext_resource path="res://components/state_machine/state.gd" type="Script" id=7]
+[ext_resource path="res://spoopies/states/appearing.gd" type="Script" id=8]
+[ext_resource path="res://spoopies/states/lit.gd" type="Script" id=9]
+[ext_resource path="res://spoopies/states/identified.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.1658
@@ -13,7 +20,6 @@ collision_layer = 4
 script = ExtResource( 2 )
 
 [node name="PlayerDetector" parent="." instance=ExtResource( 3 )]
-visible = false
 cast_radius = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -24,3 +30,24 @@ disabled = true
 visible = false
 texture = ExtResource( 1 )
 hframes = 2
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Init" type="Node" parent="StateMachine"]
+script = ExtResource( 7 )
+
+[node name="Hidden" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+
+[node name="Appearing" type="Node" parent="StateMachine"]
+script = ExtResource( 8 )
+
+[node name="Unlit" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+
+[node name="Lit" type="Node" parent="StateMachine"]
+script = ExtResource( 9 )
+
+[node name="Identified" type="Node" parent="StateMachine"]
+script = ExtResource( 10 )

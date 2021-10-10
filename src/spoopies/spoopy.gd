@@ -1,5 +1,6 @@
 tool
 extends KinematicBody2D
+class_name Spoopy
 
 onready var sprite = $Sprite
 onready var collision = $CollisionShape2D
@@ -8,6 +9,14 @@ onready var detector = $PlayerDetector
 func _ready() -> void:
 	_set_disabled(true)
 	detector.connect("body_entered", self, "_on_player_detected")	
+
+
+func light_on() -> void:
+	print("is lit!")
+
+	
+func light_off() -> void:
+	print("is in shadooow")
 
 
 func _set_disabled(value: bool) -> void:

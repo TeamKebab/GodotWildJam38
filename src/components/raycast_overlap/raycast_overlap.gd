@@ -5,6 +5,16 @@ signal body_entered(body)
 signal body_exited(body)
 
 
+export var half_angle: float = PI setget _set_half_angle
+func _set_half_angle(value: float) -> void:
+	half_angle = value
+	
+	if (rays_container == null):
+		return
+	
+	_setup_rays()
+
+
 export var number_of_rays: int = 16 setget _set_number_of_rays
 func _set_number_of_rays(value: int) -> void:
 	number_of_rays = value
@@ -12,12 +22,7 @@ func _set_number_of_rays(value: int) -> void:
 	if (rays_container == null):
 		return
 	
-	for ray in rays_container.get_children():
-		rays.erase(ray)
-		ray.queue_free()
-		
-	for i in number_of_rays:
-		_add_ray(2*PI / number_of_rays * i)
+	_setup_rays()
 
 
 export(int, LAYERS_2D_PHYSICS) var detection_mask setget _set_detection_mask
@@ -51,7 +56,7 @@ func _set_cast_radius(value: int) -> void:
 	cast_radius = value
 	
 	for ray in rays:
-		ray.cast_to.y = cast_radius
+		ray.cast_to.x = cast_radius
 	
 	if detection_area == null:
 		return
@@ -115,7 +120,8 @@ func _physics_process(delta: float) -> void:
 func _add_ray(angle: float) -> void:
 	var ray = RayCast2D.new()
 	ray.rotation = angle
-	ray.cast_to.y = cast_radius
+	ray.cast_to.x = cast_radius
+	ray.cast_to.y = 0
 	ray.collision_mask = collision_mask | detection_mask
 	ray.collide_with_areas = true
 	ray.collide_with_bodies = true
@@ -124,6 +130,23 @@ func _add_ray(angle: float) -> void:
 	rays_container.add_child(ray)
 
 
+func _setup_rays() -> void:
+	for ray in rays_container.get_children():
+		rays.erase(ray)
+		ray.queue_free()
+	
+	var is_arc = half_angle < PI
+	var adjusted_number_of_rays = number_of_rays
+	
+	if is_arc:
+		adjusted_number_of_rays = number_of_rays - 1
+			
+	for i in adjusted_number_of_rays:
+		_add_ray(2 * half_angle / adjusted_number_of_rays * i - half_angle)
+
+	if is_arc:
+		_add_ray(half_angle)
+		
 func _setup_detection_area() -> void:
 	var shape = CircleShape2D.new()
 	shape.radius = cast_radius

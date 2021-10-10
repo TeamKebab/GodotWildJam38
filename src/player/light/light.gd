@@ -1,8 +1,13 @@
-extends Light2D
+extends Node2D
 
-
+onready var light = $Light
 onready var turn_on_sound = $TurnOnSound
 onready var turn_off_sound = $TurnOffSound
+onready var detection_area = $DetectionArea
+
+func _ready() -> void:
+	detection_area.connect("body_entered", self, "_on_spoopy_entered")
+	detection_area.connect("body_exited", self, "_on_spoopy_exited")
 
 
 func _input(event):
@@ -18,9 +23,17 @@ func _point_to(point: Vector2) -> void:
 
 
 func _toggle() -> void:
-	if enabled:
+	if light.enabled:
 		turn_off_sound.play()
 	else:
 		turn_on_sound.play()
 		
-	enabled = !enabled
+	light.enabled = !light.enabled
+
+
+func _on_spoopy_entered(spoopy: Spoopy) -> void:
+	spoopy.light_on()
+
+
+func _on_spoopy_exited(spoopy: Spoopy) -> void:
+	spoopy.light_off()

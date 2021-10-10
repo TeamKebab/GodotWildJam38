@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Spoopy",
+"language": "GDScript",
+"path": "res://spoopies/spoopy.gd"
+} ]
+_global_script_class_icons={
+"Spoopy": ""
+}
+
 [application]
 
 config/name="GodotWildJam38"

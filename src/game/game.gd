@@ -27,6 +27,7 @@ func _ready() -> void:
 	_set_player_lives(max_player_lives)
 	battery = max_battery
 	
+	randomize()
 
 func drain_battery(drain: int) -> void:
 	battery = max(0, battery - drain)

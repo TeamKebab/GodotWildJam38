@@ -19,7 +19,7 @@
 radius = 31.4212
 height = 36.8571
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=2]
 radius = 33.5303
 
 [sub_resource type="Animation" id=3]
@@ -67,7 +67,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2( -0.594604, -40.6105 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -72,7 +72,6 @@ func _set_enabled(value: bool) ->void:
 	
 	detection_area.get_child(0).disabled = !enabled
 
-
 var rays = []
 var bodies_in_detection_area = []
 
@@ -89,22 +88,20 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	if Engine.editor_hint:
 		return
+		
 	var bodies_still_in_detection_area = []
 	var detected_bodies = detection_area.get_overlapping_bodies()
 	
-	if detected_bodies.empty():
-		return
-	
 	for ray in rays:
+		if detected_bodies.empty():
+			break
+		
 		ray.force_raycast_update()
 		var collider = ray.get_collider()
 		
 		if detected_bodies.has(collider):
 			bodies_still_in_detection_area.append(collider)
 			detected_bodies.erase(collider)
-			
-		if detected_bodies.empty():
-			break
 			
 	for body in bodies_still_in_detection_area:
 		if not bodies_in_detection_area.has(body):

@@ -21,6 +21,9 @@ texture = ExtResource( 1 )
 range_z_min = -1012
 range_z_max = 1012
 shadow_enabled = true
+shadow_gradient_length = 5.0
+shadow_filter = 5
+shadow_filter_smooth = 1.0
 
 [node name="DetectionArea" parent="." instance=ExtResource( 5 )]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player/player_outline.png" type="Texture" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://player/MC_running.wav" type="AudioStream" id=4]
 [ext_resource path="res://player/jump2.wav" type="AudioStream" id=5]
 [ext_resource path="res://player/land.mp3" type="AudioStream" id=6]
+[ext_resource path="res://components/motion/motion.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 14.1083
@@ -31,11 +32,7 @@ position = Vector2( 20.3882, -14.5203 )
 current = true
 smoothing_enabled = true
 
-[node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 4 )
-
-[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 5 )
-
-[node name="LandSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 6 )
+[node name="Motion" parent="." instance=ExtResource( 7 )]
+walk_stream = ExtResource( 4 )
+jump_stream = ExtResource( 5 )
+land_stream = ExtResource( 6 )

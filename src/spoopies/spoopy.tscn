@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://spoopies/bichito_cabron.png" type="Texture" id=1]
 [ext_resource path="res://spoopies/spoopy.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://spoopies/states/appearing.gd" type="Script" id=8]
 [ext_resource path="res://spoopies/states/lit.gd" type="Script" id=9]
 [ext_resource path="res://spoopies/states/identified.gd" type="Script" id=10]
+[ext_resource path="res://components/motion/motion.tscn" type="PackedScene" id=11]
+[ext_resource path="res://spoopies/spoopy_walking.wav" type="AudioStream" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.1658
@@ -30,6 +32,9 @@ disabled = true
 visible = false
 texture = ExtResource( 1 )
 hframes = 2
+
+[node name="Motion" parent="." instance=ExtResource( 11 )]
+walk_stream = ExtResource( 12 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 4 )

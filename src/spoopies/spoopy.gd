@@ -17,10 +17,13 @@ func _set_disabled(value: bool) -> void:
 		collision.disabled = false
 
 
+var target: KinematicBody2D
+
 onready var sprite = $Sprite
 onready var collision = $CollisionShape2D
 onready var detector = $PlayerDetector
 onready var state_machine = $StateMachine
+onready var motion = $Motion
 
 func _ready() -> void:
 	_set_disabled(true)

@@ -10,5 +10,10 @@ func exit() -> void:
 	spoopy.disconnect("lit", self, "_on_lit")
 	
 
+func update(delta: float) -> void:
+	var x = spoopy.target.position.x - spoopy.position.x
+	spoopy.motion.move(x / abs(x), delta)
+
+
 func _on_lit() -> void:
 	emit_signal("finished", "Lit")

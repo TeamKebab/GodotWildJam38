@@ -11,6 +11,7 @@ func exit() -> void:
 	spoopy.detector.enabled = false
 
 
-func _on_player_detected(_player: KinematicBody2D) -> void:
+func _on_player_detected(player: KinematicBody2D) -> void:
 	print("player detected!")
+	spoopy.target = player
 	emit_signal("finished", "Appearing")

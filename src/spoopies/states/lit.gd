@@ -17,6 +17,8 @@ func exit() -> void:
 
 
 func update(delta: float) -> void:
+	spoopy.motion.move(0, delta)
+	
 	lit_seconds += delta
 	
 	if lit_seconds > time_to_identify:

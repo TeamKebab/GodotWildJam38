@@ -3,7 +3,8 @@ extends "res://components/state_machine/state.gd"
 onready var spoopy = get_parent().get_parent()
 
 func enter() -> void:
-	print("unlit!")
+	print("unlit!")	
+	spoopy.animation_player.play("Unlit")
 	spoopy.connect("lit", self, "_on_lit")
 
 func exit() -> void:

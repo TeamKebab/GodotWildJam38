@@ -24,6 +24,7 @@ onready var collision = $CollisionShape2D
 onready var detector = $PlayerDetector
 onready var state_machine = $StateMachine
 onready var motion = $Motion
+onready var animation_player = $AnimationPlayer
 
 func _ready() -> void:
 	_set_disabled(true)

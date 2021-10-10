@@ -24,6 +24,10 @@ config/name="GodotWildJam38"
 run/main_scene="res://levels/level.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Game="*res://game/game.gd"
+
 [input]
 
 ui_left={

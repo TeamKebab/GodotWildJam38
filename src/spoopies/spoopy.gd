@@ -24,11 +24,13 @@ onready var collision = $CollisionShape2D
 onready var detector = $PlayerDetector
 onready var state_machine = $StateMachine
 onready var motion = $Motion
+onready var hitbox = $HitBox
 onready var animation_player = $AnimationPlayer
 
 func _ready() -> void:
 	_set_disabled(true)
 	state_machine._change_state("Hidden")
+	hitbox.connect("body_entered", self, "_on_player_touched")
 
 
 func light_on() -> void:
@@ -44,5 +46,6 @@ func identify() -> void:
 	emit_signal("identified") 
 	
 
-
+func _on_player_touched(player: KinematicBody2D) -> void:
+	player.scare()
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MC_hit.wav-523972da7ecb7d768ef6321536423b45.sample"
+
+[deps]
+
+source_file="res://player/MC_hit.wav"
+dest_files=[ "res://.import/MC_hit.wav-523972da7ecb7d768ef6321536423b45.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

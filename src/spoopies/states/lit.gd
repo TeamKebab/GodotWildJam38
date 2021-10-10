@@ -8,7 +8,7 @@ onready var spoopy = get_parent().get_parent()
 
 func enter() -> void:
 	print("lit!")
-	spoopy.animation_player.play("Lit")
+	spoopy.animation_player.play("lit")
 	lit_seconds = 0
 	spoopy.connect("unlit", self, "_on_unlit")
 

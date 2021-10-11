@@ -49,7 +49,12 @@ func drain_battery(drain: int) -> void:
 	if battery == 0:
 		emit_signal("battery_out")
 
-
+func charge_battery(charge: int) -> void:
+	battery = min(max_battery, battery + charge)
+	
+	emit_signal("battery_changed", battery)
+	
+	
 func restart() -> void:
 	_set_player_lives(max_player_lives)
 	battery = max_battery

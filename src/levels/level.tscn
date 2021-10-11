@@ -5,41 +5,16 @@
 [ext_resource path="res://spoopies/spoopy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://levels/gui/gui.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/level.gd" type="Script" id=5]
-[ext_resource path="res://levels/background/background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/background/parallax_background.tscn" type="PackedScene" id=6]
 
 [node name="Level" type="Node"]
 script = ExtResource( 5 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.5, 0.5 )
-
-[node name="Background" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource( 6 )]
-modulate = Color( 0.423529, 0.423529, 0.423529, 1 )
-position = Vector2( 2403.65, 958.386 )
-rotation = 3.14159
+[node name="ParallaxBackground" parent="." instance=ExtResource( 6 )]
+offset = Vector2( -700, -600 )
+transform = Transform2D( 1, 0, 0, 1, -700, -600 )
 tiles = Vector2( 6, 3 )
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.75, 0.75 )
-
-[node name="Background" parent="ParallaxBackground/ParallaxLayer2" instance=ExtResource( 6 )]
-modulate = Color( 0.552941, 0.552941, 0.552941, 1 )
-position = Vector2( -729.307, -608.279 )
-tiles = Vector2( 6, 3 )
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.8, 0.8 )
-
-[node name="Background" parent="ParallaxBackground/ParallaxLayer3" instance=ExtResource( 6 )]
-position = Vector2( 2416.38, 975.357 )
-rotation = 3.14159
-tiles = Vector2( 6, 3 )
-
-[node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground"]
-z_index = 100
-color = Color( 0.152941, 0.152941, 0.219608, 1 )
+canvas_modulate = Color( 0.152941, 0.152941, 0.219608, 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 4, 0 )
@@ -52,11 +27,13 @@ tile_data = PoolIntArray( -131076, 0, 6, -131075, 0, 196609, -131074, 0, 196609,
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 98.7995, 428.968 )
 
+[node name="Spoopy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 483.115, 256.39 )
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 z_index = 100
 color = Color( 0.152941, 0.152941, 0.219608, 1 )
 
-[node name="Spoopy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 483.115, 256.39 )
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GUI" parent="." instance=ExtResource( 4 )]
+[node name="GUI" parent="CanvasLayer" instance=ExtResource( 4 )]

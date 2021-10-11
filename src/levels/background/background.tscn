@@ -3,7 +3,7 @@
 [ext_resource path="res://levels/background/background.gd" type="Script" id=1]
 
 [node name="Background" type="Sprite"]
-offset = Vector2( -40, -40 )
+offset = Vector2( -35, -30 )
 script = ExtResource( 1 )
-tiles = Vector2( 3, 3 )
-offset = Vector2( -40, -40 )
+tiles = Vector2( 2, 2 )
+offset = Vector2( -35, -30 )

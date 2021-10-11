@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends MarginContainer
 
 
 onready var lives = find_node("Lives")

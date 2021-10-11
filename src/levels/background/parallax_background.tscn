@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/background/parallax_background.gd" type="Script" id=1]
+[ext_resource path="res://levels/background/background.tscn" type="PackedScene" id=2]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource( 1 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.5, 0.5 )
+
+[node name="Background" parent="ParallaxLayer" instance=ExtResource( 2 )]
+modulate = Color( 0.423529, 0.423529, 0.423529, 1 )
+tiles = Vector2( 6, 3 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.75, 0.75 )
+
+[node name="Background" parent="ParallaxLayer2" instance=ExtResource( 2 )]
+modulate = Color( 0.552941, 0.552941, 0.552941, 1 )
+position = Vector2( 10, 10 )
+tiles = Vector2( 6, 3 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.8, 0.8 )
+
+[node name="Background" parent="ParallaxLayer3" instance=ExtResource( 2 )]
+position = Vector2( -10, -10 )
+tiles = Vector2( 6, 3 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+z_index = 100

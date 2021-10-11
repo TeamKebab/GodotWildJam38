@@ -27,6 +27,5 @@ func _regenerate() -> void:
 			sprite.texture = sprite_texture
 			var sprite_size = sprite_texture.get_size() + offset
 			sprite.position = Vector2(x * sprite_size.x, y * sprite_size.y) + sprite_size / 2
-			sprite.rotation = (randi() % 4) * PI / 2
-			
+						
 			add_child(sprite)

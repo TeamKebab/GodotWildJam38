@@ -9,24 +9,30 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "SceneLoader",
+"language": "GDScript",
+"path": "res://components/scene_loader/scene_loader.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Spoopy",
 "language": "GDScript",
 "path": "res://spoopies/spoopy.gd"
 } ]
 _global_script_class_icons={
+"SceneLoader": "",
 "Spoopy": ""
 }
 
 [application]
 
 config/name="GodotWildJam38"
-run/main_scene="res://levels/level.tscn"
+run/main_scene="res://levels/game_levels/level_01.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Game="*res://game/game.gd"
+Game="*res://game/game.tscn"
 
 [input]
 

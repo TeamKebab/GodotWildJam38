@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://objects/lamp/lamp.png" type="Texture" id=1]
 [ext_resource path="res://objects/lamp/light.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://objects/lamp/lamp.gd" type="Script" id=4]
 [ext_resource path="res://components/raycast_overlap/raycast_overlap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/lamp/lamp_getting_lit.wav" type="AudioStream" id=6]
+[ext_resource path="res://objects/debug_background/debug_background.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 38.6367
@@ -15,10 +16,67 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -9.85925, -62.109, 0, 0, 0, 0, -1.84117, -60.3272, 0, 0, 0, 0, 6.84509, -57.6545, 0, 0, 0, 0, 11.5223, -52.7545, 0, 0, 0, 0, 13.9723, -46.5182, 0, 0, 0, 0, 11.745, -42.5092, 0, 0, 0, 0, 4.39513, -39.391, 0, 0, 0, 0, -2.06389, -39.6138, 0, 0, 0, 0, -8.5229, -42.2865, 0, 0, 0, 0, -11.6411, -46.9637, 0, 0, 0, 0, -8.74564, -52.5318, 0, 0, 0, 0, -5.85022, -56.0954, 0, 0, 0, 0, -1.17299, -58.0999, 0, 0, 0, 0, 6.84509, -62.109, 0, 0, 0, 0, 7.95871, -67.4543, 0, 0, 0, 0, 7.73599, -76.1406, 0, 0, 0, 0, 3.50423, -82.3769, 0, 0, 0, 0, -3.40024, -84.3814, 0, 0, 0, 0, -8.96835, -82.8223, 0, 0, 0, 0, -12.9774, -79.2588, 0, 0, 0, 0, -14.3138, -72.1316, 0, 0, 0, 0, -12.0865, -67.4543, 0, 0, 0, 0, -9.85925, -62.109 )
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "lit_up"
+length = 5.0
+tracks/0/type = "audio"
+tracks/0/path = NodePath("TurnOnSound")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "_set_enabled"
+} ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("AreaLight:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0.6, -0.25, 0, 0.25, 0, 0.2, -0.25, 0, 0.25, 0, 0.8, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.4, 1.8, 2.3 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("BulbLight:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 1.75, -0.25, 0, 0.25, 0, 0.8, -0.25, 0, 0.25, 0, 1.9, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.2, 1.4, 1.55, 1.7, 1.8, 1.95, 2.1 )
+}
+
 [node name="Lamp" type="StaticBody2D"]
 collision_layer = 32
 collision_mask = 0
 script = ExtResource( 4 )
+
+[node name="DebugBG" parent="." instance=ExtResource( 7 )]
+visible = false
+center_parent = false
+size = Vector2( 1024, 600 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -31,6 +89,7 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 
 [node name="Path2D" type="Path2D" parent="."]
+visible = false
 curve = SubResource( 2 )
 
 [node name="LightBall" parent="Path2D" instance=ExtResource( 3 )]
@@ -49,7 +108,7 @@ rotation = 4.71239
 scale = Vector2( 0.6, 0.6 )
 offset = 85.7744
 
-[node name="Light2D" type="Light2D" parent="."]
+[node name="AreaLight" type="Light2D" parent="."]
 position = Vector2( -2, -64 )
 texture = ExtResource( 2 )
 color = Color( 0.996078, 1, 0.341176, 1 )
@@ -60,7 +119,7 @@ shadow_gradient_length = 10.0
 shadow_filter = 5
 shadow_filter_smooth = 5.0
 
-[node name="Light2D2" type="Light2D" parent="."]
+[node name="BulbLight" type="Light2D" parent="."]
 position = Vector2( -2, -64 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
@@ -71,14 +130,30 @@ shadow_gradient_length = 10.0
 shadow_filter = 5
 shadow_filter_smooth = 5.0
 
+[node name="BulbLight" type="Light2D" parent="BulbLight"]
+position = Vector2( -2, -64 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+color = Color( 0.996078, 1, 0.341176, 1 )
+energy = 0.0
+range_layer_min = -200
+shadow_gradient_length = 10.0
+shadow_filter = 5
+shadow_filter_smooth = 5.0
+
 [node name="ChargingArea" parent="." instance=ExtResource( 5 )]
 visible = false
+position = Vector2( -2, -64 )
 number_of_rays = 32
-cast_radius = 300
+cast_radius = 150
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
 autostart = true
 
 [node name="TurnOnSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
 volume_db = -5.506
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/lit_up = SubResource( 3 )

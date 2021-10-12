@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/platforms/JunldeDirtAutoTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/lamp/lamp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://levels/gui/gui.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/level.gd" type="Script" id=5]
 [ext_resource path="res://levels/background/parallax_background.tscn" type="PackedScene" id=6]
@@ -20,6 +21,10 @@ position = Vector2( 4, 0 )
 tile_set = ExtResource( 1 )
 collision_mask = 0
 format = 1
+
+[node name="StartLamp" parent="." instance=ExtResource( 3 )]
+position = Vector2( 46.9214, 715.637 )
+start_lit = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 98.7995, 428.968 )

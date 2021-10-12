@@ -147,7 +147,7 @@ position = Vector2( -2, -64 )
 number_of_rays = 32
 cast_radius = 150
 
-[node name="Timer" type="Timer" parent="."]
+[node name="ChargingTimer" type="Timer" parent="."]
 wait_time = 0.2
 autostart = true
 

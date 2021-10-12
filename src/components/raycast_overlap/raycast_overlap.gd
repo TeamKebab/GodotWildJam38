@@ -4,7 +4,6 @@ extends Node2D
 signal body_entered(body)
 signal body_exited(body)
 
-
 export var half_angle: float = PI setget _set_half_angle
 func _set_half_angle(value: float) -> void:
 	half_angle = value

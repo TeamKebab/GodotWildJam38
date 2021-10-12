@@ -9,8 +9,9 @@ onready var detection_area = $DetectionArea
 onready var timer = $Timer
 
 func _ready() -> void:
-	detection_area.connect("body_entered", self, "_on_spoopy_entered")
-	detection_area.connect("body_exited", self, "_on_spoopy_exited")
+	detection_area.connect("body_entered", self, "_on_body_lit")
+	detection_area.connect("body_exited", self, "_on_body_unlit")
+	
 	timer.connect("timeout", self, "_on_timer_timeout")
 	Game.connect("battery_out", self, "_on_battery_out")
 	
@@ -46,12 +47,12 @@ func _toggle() -> void:
 		timer.stop()
 
 
-func _on_spoopy_entered(spoopy: Spoopy) -> void:
-	spoopy.light_on()
+func _on_body_lit(body: PhysicsBody2D) -> void:
+	body.light_on()
 
 
-func _on_spoopy_exited(spoopy: Spoopy) -> void:
-	spoopy.light_off()
+func _on_body_unlit(body: PhysicsBody2D) -> void:
+	body.light_off()
 
 
 func _on_timer_timeout() -> void:

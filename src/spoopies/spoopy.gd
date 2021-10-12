@@ -2,6 +2,11 @@ tool
 extends KinematicBody2D
 class_name Spoopy
 
+# warning-ignore:unused_signal
+signal player_detected
+# warning-ignore:unused_signal
+signal appeared
+
 signal lit
 signal unlit
 signal identified
@@ -33,6 +38,14 @@ func _ready() -> void:
 	hitbox.connect("area_entered", self, "_on_player_touched")
 
 
+func player_detected() -> void:
+	emit_signal("player_detected")
+
+
+func appear() -> void:
+	emit_signal("appeared")
+	
+	
 func light_on() -> void:
 	emit_signal("lit")
 

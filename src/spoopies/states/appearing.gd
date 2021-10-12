@@ -12,5 +12,5 @@ func enter() -> void:
 	
 func exit() -> void:
 	rustling.queue_free()
-	
+	spoopy.emit_signal("appeared")
 	spoopy._set_disabled(false)

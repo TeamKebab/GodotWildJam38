@@ -7,6 +7,10 @@ onready var motion = $Motion
 onready var scare_sound = $ScareSound
 onready var damage_box = $DamageBox
 
+
+func _ready() -> void:
+	Game.player = self
+	Game.player_camera = $Camera2D
 	
 func _physics_process(delta: float) -> void:
 	motion.move(Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"), delta)

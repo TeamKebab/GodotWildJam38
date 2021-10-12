@@ -27,6 +27,9 @@ var max_player_lives: int = 3
 var battery: int  
 var max_battery: int = 200
 
+var player: KinematicBody2D
+var player_camera: Camera2D
+
 onready var scene_loader = $SceneLoader
 
 func _ready() -> void:

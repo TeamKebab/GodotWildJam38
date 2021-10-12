@@ -4,8 +4,9 @@
 [ext_resource path="res://levels/background/leaf.gd" type="Script" id=2]
 
 [node name="Sprite" type="Sprite"]
-modulate = Color( 0.838686, 0.722373, 0.1, 1 )
-rotation = 5.87577
+modulate = Color( 0.756282, 0.718558, 0.1, 1 )
+rotation = 1.86037
+z_index = 4
 texture = ExtResource( 1 )
 hframes = 2
 frame = 1

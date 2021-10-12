@@ -25,7 +25,7 @@ func _set_player_lives(value: int) -> void:
 var max_player_lives: int = 3
 
 var battery: int  
-var max_battery: int = 30
+var max_battery: int = 200
 
 onready var scene_loader = $SceneLoader
 

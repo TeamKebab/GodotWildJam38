@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://objects/lamp/lamp.png" type="Texture" id=1]
 [ext_resource path="res://objects/lamp/light.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://components/raycast_overlap/raycast_overlap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/lamp/lamp_getting_lit.wav" type="AudioStream" id=6]
 [ext_resource path="res://objects/debug_background/debug_background.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/lamp/recover_energy_health.wav" type="AudioStream" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 38.6367
@@ -72,6 +73,7 @@ tracks/3/keys = {
 collision_layer = 32
 collision_mask = 0
 script = ExtResource( 4 )
+charge_per_tick = 10
 
 [node name="DebugBG" parent="." instance=ExtResource( 7 )]
 visible = false
@@ -148,12 +150,16 @@ number_of_rays = 32
 cast_radius = 150
 
 [node name="ChargingTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
 autostart = true
 
 [node name="TurnOnSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
 volume_db = -5.506
+
+[node name="ChargingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+attenuation = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/lit_up = SubResource( 3 )

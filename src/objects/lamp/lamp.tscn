@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://objects/lamp/lamp.png" type="Texture" id=1]
 [ext_resource path="res://objects/lamp/light.png" type="Texture" id=2]
 [ext_resource path="res://objects/lamp/light_ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/lamp/lamp.gd" type="Script" id=4]
 [ext_resource path="res://components/raycast_overlap/raycast_overlap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/lamp/lamp_getting_lit.wav" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 38.6367
@@ -52,6 +53,7 @@ offset = 85.7744
 position = Vector2( -2, -64 )
 texture = ExtResource( 2 )
 color = Color( 0.996078, 1, 0.341176, 1 )
+energy = 0.8
 range_layer_min = -200
 shadow_enabled = true
 shadow_gradient_length = 10.0
@@ -76,3 +78,7 @@ cast_radius = 300
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="TurnOnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -5.506

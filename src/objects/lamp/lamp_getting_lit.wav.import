@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lamp_getting_lit.wav-2e265e545f8e0c967face5ac416b483c.sample"
+
+[deps]
+
+source_file="res://objects/lamp/lamp_getting_lit.wav"
+dest_files=[ "res://.import/lamp_getting_lit.wav-2e265e545f8e0c967face5ac416b483c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

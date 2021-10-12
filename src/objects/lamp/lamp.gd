@@ -6,8 +6,8 @@ func _set_enabled(value: bool) -> void:
 	
 	for light in lights:
 		light.enabled = value
-	for light_ball in light_balls:
-		light_ball.visible = value
+#	for light_ball in light_balls:
+#		light_ball.visible = value
 		
 		
 onready var lights = [
@@ -18,6 +18,8 @@ onready var lights = [
 onready var light_balls = $Path2D.get_children()
 onready var charging_area = $ChargingArea
 onready var timer = $Timer
+onready var turn_on_sound = $TurnOnSound
+
 
 func _ready() -> void:
 	timer.connect("timeout", self, "_on_timeout")
@@ -31,6 +33,14 @@ func _on_timeout() -> void:
 
 
 func light_on() -> void:
+	if enabled:
+		return
+	
+	turn_on_sound.play()
+	for light_ball in light_balls:
+		light_ball.lit_up()
+		
+	yield(get_tree().create_timer(1), "timeout")
 	_set_enabled(true)
 
 

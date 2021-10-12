@@ -351,3 +351,6 @@ tile_data = PoolIntArray( -327685, 0, 6, -327684, 0, 196609, -327683, 0, 196609,
 
 [node name="Lamp" parent="." index="2" instance=ExtResource( 3 )]
 position = Vector2( 457.031, 440.995 )
+
+[node name="CanvasModulate" parent="." index="4"]
+color = Color( 0.152941, 0.152941, 0.219608, 1 )

@@ -373,8 +373,5 @@ position = Vector2( 964.843, 563.939 )
 [node name="Lamp8" parent="." index="9" instance=ExtResource( 3 )]
 position = Vector2( 1410.29, 567.503 )
 
-[node name="Lamp9" parent="." index="10" instance=ExtResource( 3 )]
-position = Vector2( -147.118, 565.384 )
-
-[node name="CanvasModulate" parent="." index="12"]
-color = Color( 0.152941, 0.152941, 0.219608, 1 )
+[node name="StartLamp" parent="." index="10"]
+position = Vector2( -45.8368, 565.797 )

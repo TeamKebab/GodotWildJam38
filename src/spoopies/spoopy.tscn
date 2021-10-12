@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://spoopies/animations/identified.tres" type="Animation" id=1]
 [ext_resource path="res://spoopies/spoopy.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://spoopies/spoopy_walking.wav" type="AudioStream" id=12]
 [ext_resource path="res://spoopies/spritesheet.png" type="Texture" id=13]
 [ext_resource path="res://spoopies/animations/lit.tres" type="Animation" id=14]
+[ext_resource path="res://spoopies/rustling/rustling.tscn" type="PackedScene" id=15]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 31.4212
@@ -56,6 +57,12 @@ position = Vector2( 0, -40 )
 texture = ExtResource( 13 )
 hframes = 12
 frame = 9
+
+[node name="Rustling" parent="." instance=ExtResource( 15 )]
+visible = false
+position = Vector2( 0, -79 )
+radius = 92.0
+density = 35
 
 [node name="Motion" parent="." instance=ExtResource( 11 )]
 max_run_speed = 250.0

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://spoopies/rustling/rustling.gd" type="Script" id=1]
+[ext_resource path="res://spoopies/rustling/leaves_rustle.mp3" type="AudioStream" id=2]
+
+[node name="Rustling" type="Node2D"]
+script = ExtResource( 1 )
+radius = 100.0
+density = 20
+
+[node name="Leaves" type="Node2D" parent="."]
+
+[node name="RustlingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/leaves_rustle.mp3-003997651a34c0764842299500b599d8.mp3str"
+
+[deps]
+
+source_file="res://spoopies/rustling/leaves_rustle.mp3"
+dest_files=[ "res://.import/leaves_rustle.mp3-003997651a34c0764842299500b599d8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

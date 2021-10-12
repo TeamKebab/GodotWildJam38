@@ -18,7 +18,8 @@ func exit() -> void:
 
 
 func update(delta: float) -> void:
-	spoopy.motion.move(0, delta)
+	var x = spoopy.target.position.x - spoopy.position.x
+	spoopy.motion.move(x / abs(x) * 0.2, delta)
 	
 	lit_seconds += delta
 	

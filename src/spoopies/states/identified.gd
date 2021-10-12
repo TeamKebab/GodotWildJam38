@@ -5,3 +5,6 @@ onready var spoopy = get_parent().get_parent()
 func enter() -> void:
 	spoopy.identify()
 	spoopy.animation_player.play("identified")
+
+func update(delta: float) -> void:
+	spoopy.motion.move(0, delta)

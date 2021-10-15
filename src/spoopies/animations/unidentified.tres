@@ -36,3 +36,13 @@ tracks/2/keys = {
 "points": PoolRealArray( -52.977, 0, 0, 0.25, 0, -50.977, 0, 0, 0.25, 0, -47.977, 0, 0, 0.25, 0, -47.977, -0.25, 0, 0.25, 0, -50.977, 0, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5 )
 }
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("LightOccluder2D:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5 )
+}

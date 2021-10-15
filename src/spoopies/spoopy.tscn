@@ -111,7 +111,7 @@ position = Vector2( 0, -40 )
 z_index = 1
 texture = ExtResource( 13 )
 hframes = 13
-frame = 6
+frame = 5
 
 [node name="LeftFoot" type="Sprite" parent="Sprite"]
 position = Vector2( -25, 40 )
@@ -128,18 +128,20 @@ region_enabled = true
 region_rect = Rect2( 1270, 83, 34, 19 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
+position = Vector2( 0, 0.00329209 )
 occluder = SubResource( 2 )
 
 [node name="LeftEye" type="Light2D" parent="."]
-position = Vector2( -22.2838, -51.9335 )
+visible = false
+position = Vector2( -22.2838, -51.9775 )
 texture = ExtResource( 16 )
 texture_scale = 0.01
 color = Color( 1, 0, 0, 1 )
 energy = 2.0
 
 [node name="RightEye" type="Light2D" parent="."]
-position = Vector2( -6.0965, -52.9445 )
+visible = false
+position = Vector2( -6.0965, -52.9739 )
 texture = ExtResource( 16 )
 texture_scale = 0.01
 color = Color( 1, 0, 0, 1 )
@@ -176,7 +178,6 @@ anims/walk = ExtResource( 18 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = ExtResource( 19 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/Add2/add_amount = 0.5
 parameters/move_facing/facing_direction/playback = SubResource( 9 )
 parameters/move_facing/move/playback = SubResource( 10 )

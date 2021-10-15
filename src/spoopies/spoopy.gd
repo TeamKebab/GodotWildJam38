@@ -34,11 +34,13 @@ onready var motion = $Motion
 onready var hitbox = $HitBox
 onready var shadow = $LightOccluder2D
 
+onready var animationTree = $AnimationTree
 
 func _ready() -> void:
 	_set_disabled(true)
 	state_machine._change_state("Hidden")
 	hitbox.connect("area_entered", self, "_on_player_touched")
+	animationTree.active = true
 
 
 func player_detected() -> void:

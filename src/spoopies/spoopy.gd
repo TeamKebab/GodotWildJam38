@@ -16,9 +16,11 @@ var disabled setget _set_disabled
 func _set_disabled(value: bool) -> void:
 	if value:
 		sprite.hide()
+		shadow.hide()
 		collision.disabled = true
 	else:
-		sprite.show()
+		sprite.show() 
+		shadow.show()
 		collision.disabled = false
 
 
@@ -30,6 +32,7 @@ onready var detector = $PlayerDetector
 onready var state_machine = $StateMachine
 onready var motion = $Motion
 onready var hitbox = $HitBox
+onready var shadow = $LightOccluder2D
 onready var animation_player = $AnimationPlayer
 
 func _ready() -> void:

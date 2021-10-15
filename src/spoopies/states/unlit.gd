@@ -6,6 +6,7 @@ func enter() -> void:
 	print("unlit!")	
 	spoopy.animation_player.play("unlit")
 	spoopy.hitbox.get_child(0).disabled = false
+	spoopy.shadow.show()
 	spoopy.connect("lit", self, "_on_lit")
 
 func exit() -> void:

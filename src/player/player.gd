@@ -30,5 +30,14 @@ func scare() -> void:
 	_set_invulnerable(false)
 
 
+func pause() -> void:
+	set_physics_process(false)
+	motion.stop_sound()
+	
+	
+func resume() -> void:
+	set_physics_process(true)
+
+
 func _set_invulnerable(value: bool) -> void:
 	damage_box.get_child(0).call_deferred("set_disabled", value)

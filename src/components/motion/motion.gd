@@ -36,7 +36,11 @@ func _ready() -> void:
 		land_sound = $LandSound
 		land_sound.stream = land_stream
 		
-	
+
+func stop_sound() -> void:
+	if walk_sound != null:
+		walk_sound.stop()
+
 func move(input_x: float, delta: float) -> void:
 	if input_x == 0:
 		motion = motion.move_toward(Vector2(0, motion.y), friction * delta)

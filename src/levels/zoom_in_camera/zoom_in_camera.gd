@@ -11,7 +11,6 @@ onready var previous_camera: Camera2D
 
 
 func reset() -> void:
-#	Game.player.set_physics_process(true)	
 	
 	tween.interpolate_property(
 		self, "global_position", global_position, Game.player_camera.global_position,
@@ -25,11 +24,12 @@ func reset() -> void:
 	
 	yield(tween, "tween_all_completed")
 	
+	Game.player.resume()	
 	Game.player_camera.current = true
 
 
 func zoom_at(point: Vector2) -> void:
-#	Game.player.set_physics_process(false)
+	Game.player.pause()
 	
 	global_position = Game.player_camera.global_position
 	current = true

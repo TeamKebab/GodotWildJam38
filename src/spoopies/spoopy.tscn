@@ -25,7 +25,7 @@ radius = 31.4212
 height = 36.8571
 
 [sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( -33.7081, -16.1156, -34.7092, -39.809, -28.7024, -70.5104, 2.66629, -83.1913, 22.3552, -77.852, 26.3597, -54.1586, 31.3654, -27.7955, 40.0418, -4.7695, 26.3597, 0.236145, 11.3428, 7.91148, -33.7081, 8.5789, -45.3879, -2.76724 )
+polygon = PoolVector2Array( -27.6465, -24.602, -25.9647, -40.9995, -20.4989, -67.9082, -0.737793, -79.2604, 17.762, -70.0105, 21.1255, -54.8743, 23.6483, -36.795, 27.4323, -23.3407, 19.4438, -9.46585, 7.25073, -6.10226, -7.88544, -6.10226, -24.2829, -10.3067 )
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 33.5303
@@ -111,7 +111,7 @@ position = Vector2( 0, -40 )
 z_index = 1
 texture = ExtResource( 13 )
 hframes = 13
-frame = 11
+frame = 6
 
 [node name="LeftFoot" type="Sprite" parent="Sprite"]
 position = Vector2( -25, 40 )
@@ -132,14 +132,14 @@ visible = false
 occluder = SubResource( 2 )
 
 [node name="LeftEye" type="Light2D" parent="."]
-position = Vector2( -22.2838, -47.9822 )
+position = Vector2( -22.2838, -51.9335 )
 texture = ExtResource( 16 )
 texture_scale = 0.01
 color = Color( 1, 0, 0, 1 )
 energy = 2.0
 
 [node name="RightEye" type="Light2D" parent="."]
-position = Vector2( -6.0965, -50.977 )
+position = Vector2( -6.0965, -52.9445 )
 texture = ExtResource( 16 )
 texture_scale = 0.01
 color = Color( 1, 0, 0, 1 )

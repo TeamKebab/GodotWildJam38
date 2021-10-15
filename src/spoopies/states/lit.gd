@@ -8,7 +8,7 @@ onready var spoopy = get_parent().get_parent()
 
 func enter() -> void:
 	print("lit!")
-	spoopy.animation_player.play("lit")
+	spoopy.animation_player.play("unidentified")
 	lit_seconds = 0
 	spoopy.connect("unlit", self, "_on_unlit")
 
@@ -25,6 +25,7 @@ func update(delta: float) -> void:
 	
 	if lit_seconds > time_to_identify:
 		emit_signal("finished", "Identified")
+
 
 func _on_unlit() -> void:
 	emit_signal("finished", "Unlit")

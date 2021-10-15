@@ -4,7 +4,7 @@ onready var spoopy = get_parent().get_parent()
 
 func enter() -> void:
 	print("unlit!")	
-	spoopy.animation_player.play("unlit")
+	spoopy.animation_player.play("unidentified")
 	spoopy.hitbox.get_child(0).disabled = false
 	spoopy.shadow.show()
 	spoopy.connect("lit", self, "_on_lit")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://spoopies/animations/identified.tres" type="Animation" id=1]
 [ext_resource path="res://spoopies/spoopy.gd" type="Script" id=2]
@@ -13,7 +13,7 @@
 [ext_resource path="res://components/motion/motion.tscn" type="PackedScene" id=11]
 [ext_resource path="res://spoopies/spoopy_walking.wav" type="AudioStream" id=12]
 [ext_resource path="res://spoopies/spritesheet.png" type="Texture" id=13]
-[ext_resource path="res://spoopies/animations/lit.tres" type="Animation" id=14]
+[ext_resource path="res://spoopies/animations/unidentified.tres" type="Animation" id=14]
 [ext_resource path="res://spoopies/rustling/rustling.tscn" type="PackedScene" id=15]
 [ext_resource path="res://objects/lamp/light.png" type="Texture" id=16]
 
@@ -26,20 +26,6 @@ polygon = PoolVector2Array( -33.7081, -16.1156, -34.7092, -39.809, -28.7024, -70
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 33.5303
-
-[sub_resource type="Animation" id=4]
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 6 ]
-}
 
 [node name="Spoopy" type="KinematicBody2D"]
 collision_layer = 4
@@ -58,13 +44,13 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 position = Vector2( 0, -40 )
 texture = ExtResource( 13 )
-hframes = 12
-frame = 9
+hframes = 13
+frame = 11
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 occluder = SubResource( 2 )
 
 [node name="Rustling" parent="." instance=ExtResource( 15 )]
@@ -88,8 +74,7 @@ disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/identified = ExtResource( 1 )
-anims/lit = ExtResource( 14 )
-anims/unlit = SubResource( 4 )
+anims/unidentified = ExtResource( 14 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 4 )
@@ -113,14 +98,14 @@ script = ExtResource( 9 )
 script = ExtResource( 10 )
 
 [node name="LeftEye" type="Light2D" parent="."]
-position = Vector2( -22.2838, -48.9822 )
+position = Vector2( -22.2838, -47.9822 )
 texture = ExtResource( 16 )
 texture_scale = 0.01
 color = Color( 1, 0, 0, 1 )
 energy = 2.0
 
 [node name="RightEye" type="Light2D" parent="."]
-position = Vector2( -6.0965, -52.9765 )
+position = Vector2( -6.0965, -50.977 )
 texture = ExtResource( 16 )
 texture_scale = 0.01
 color = Color( 1, 0, 0, 1 )

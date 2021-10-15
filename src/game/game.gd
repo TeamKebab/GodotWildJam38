@@ -45,7 +45,7 @@ func _ready() -> void:
 
 
 func drain_battery(drain: int) -> void:
-	battery = max(0, battery - drain)
+	battery = int(max(0, battery - drain))
 	
 	emit_signal("battery_changed", battery)
 	
@@ -53,7 +53,7 @@ func drain_battery(drain: int) -> void:
 		emit_signal("battery_out")
 
 func charge_battery(charge: int) -> void:
-	battery = min(max_battery, battery + charge)
+	battery = int(min(max_battery, battery + charge))
 	
 	emit_signal("battery_changed", battery)
 	

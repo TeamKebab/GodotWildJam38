@@ -57,7 +57,7 @@ func _on_player_charging(_player: KinematicBody2D) -> void:
 	if Game.battery < Game.max_battery:
 		charging_sound.play()
 
-func _on_battery_changed(battery: float) -> void:
+func _on_battery_changed(_battery: float) -> void:
 	if Game.battery >= Game.max_battery:
 		charging_sound.stop()
 

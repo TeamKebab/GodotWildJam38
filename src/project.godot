@@ -34,6 +34,10 @@ config/icon="res://icon.png"
 
 Game="*res://game/game.tscn"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [input]
 
 ui_left={

@@ -1,14 +1,12 @@
-extends "res://components/state_machine/state.gd"
+extends "res://spoopies/states/walking.gd"
 
 export var time_to_identify: float = 3
 
 var lit_seconds = 0
 
-onready var spoopy = get_parent().get_parent()
 
 func enter() -> void:
 	print("lit!")
-	spoopy.animation_player.play("unidentified")
 	lit_seconds = 0
 	spoopy.connect("unlit", self, "_on_unlit")
 
@@ -18,8 +16,9 @@ func exit() -> void:
 
 
 func update(delta: float) -> void:
-	var x = spoopy.target.position.x - spoopy.position.x
-	spoopy.motion.move(x / abs(x) * 0.2, delta)
+	var facing_direction = direction()
+	face(facing_direction)
+	spoopy.motion.move(facing_direction * 0.2, delta)
 	
 	lit_seconds += delta
 	

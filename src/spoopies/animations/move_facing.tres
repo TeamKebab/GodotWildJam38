@@ -1,0 +1,50 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=12 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "face_left"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "face_right"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=4]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+
+[sub_resource type="AnimationNodeStateMachine" id=6]
+states/face_left/node = SubResource( 2 )
+states/face_left/position = Vector2( 214, 142 )
+states/face_right/node = SubResource( 3 )
+states/face_right/position = Vector2( 554, 142 )
+transitions = [ "face_left", "face_right", SubResource( 4 ), "face_right", "face_left", SubResource( 5 ) ]
+start_node = "face_left"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachine" id=11]
+states/idle/node = SubResource( 7 )
+states/idle/position = Vector2( 284, 156 )
+states/walk/node = SubResource( 8 )
+states/walk/position = Vector2( 505, 177 )
+transitions = [ "idle", "walk", SubResource( 9 ), "walk", "idle", SubResource( 10 ) ]
+start_node = "idle"
+
+[sub_resource type="AnimationNodeAdd2" id=12]
+
+[resource]
+graph_offset = Vector2( 0, -47.25 )
+nodes/facing_direction/node = SubResource( 6 )
+nodes/facing_direction/position = Vector2( 300, 20 )
+nodes/move/node = SubResource( 11 )
+nodes/move/position = Vector2( 300, 140 )
+nodes/move_facing/node = SubResource( 12 )
+nodes/move_facing/position = Vector2( 600, 40 )
+nodes/output/position = Vector2( 820, 40 )
+node_connections = [ "output", 0, "move_facing", "move_facing", 0, "facing_direction", "move_facing", 1, "move" ]

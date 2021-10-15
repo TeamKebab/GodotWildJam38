@@ -1,15 +1,16 @@
-extends "res://components/state_machine/state.gd"
+extends "res://spoopies/states/walking.gd"
 
-onready var spoopy = get_parent().get_parent()
 onready var eyes = [
 	spoopy.find_node("LeftEye"), 
 	spoopy.find_node("RightEye")
 ]
+onready var animationStatus = animationTree.get("parameters/status/playback")
 
 func enter() -> void:
 	spoopy.identify()
-	spoopy.animation_player.play("identified")
-
+	animationStatus.travel("identified")
+	face(0)
+	
 	for eye in eyes:
 		eye.enabled = false
 		

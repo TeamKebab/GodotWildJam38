@@ -1,0 +1,26 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "walk"
+length = 0.4
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Sprite/LeftFoot:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 40, -0.25, 0, 0.25, 0, 40, -0.25, 0, 0.25, 0, 34.1575, -0.25, 0, 0.25, 0, 40, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Sprite/RightFoot:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 40, -0.25, 0, 0.25, 0, 31, -0.25, 0, 0.25, 0, 40, -0.25, 0, 0.25, 0, 40, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4 )
+}

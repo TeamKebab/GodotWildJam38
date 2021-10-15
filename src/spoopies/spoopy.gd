@@ -33,7 +33,7 @@ onready var state_machine = $StateMachine
 onready var motion = $Motion
 onready var hitbox = $HitBox
 onready var shadow = $LightOccluder2D
-onready var animation_player = $AnimationPlayer
+
 
 func _ready() -> void:
 	_set_disabled(true)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://spoopies/animations/identified.tres" type="Animation" id=1]
 [ext_resource path="res://spoopies/spoopy.gd" type="Script" id=2]
@@ -16,6 +16,9 @@
 [ext_resource path="res://spoopies/animations/unidentified.tres" type="Animation" id=14]
 [ext_resource path="res://spoopies/rustling/rustling.tscn" type="PackedScene" id=15]
 [ext_resource path="res://objects/lamp/light.png" type="Texture" id=16]
+[ext_resource path="res://spoopies/animations/slow_walk.tres" type="Animation" id=17]
+[ext_resource path="res://spoopies/animations/walk.tres" type="Animation" id=18]
+[ext_resource path="res://spoopies/animations/animation_root.tres" type="AnimationNodeBlendTree" id=19]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 31.4212
@@ -26,6 +29,66 @@ polygon = PoolVector2Array( -33.7081, -16.1156, -34.7092, -39.809, -28.7024, -70
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 33.5303
+
+[sub_resource type="Animation" id=4]
+resource_name = "face_left"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "face_right"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Sprite/LeftFoot:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 40, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Sprite/RightFoot:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 40, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=8]
 
 [node name="Spoopy" type="KinematicBody2D"]
 collision_layer = 4
@@ -45,13 +108,42 @@ disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -40 )
+z_index = 1
 texture = ExtResource( 13 )
 hframes = 13
 frame = 11
 
+[node name="LeftFoot" type="Sprite" parent="Sprite"]
+position = Vector2( -25, 40 )
+z_index = -1
+texture = ExtResource( 13 )
+region_enabled = true
+region_rect = Rect2( 1229, 86, 34, 16 )
+
+[node name="RightFoot" type="Sprite" parent="Sprite"]
+position = Vector2( 12, 40 )
+z_index = -1
+texture = ExtResource( 13 )
+region_enabled = true
+region_rect = Rect2( 1270, 83, 34, 19 )
+
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 visible = false
 occluder = SubResource( 2 )
+
+[node name="LeftEye" type="Light2D" parent="."]
+position = Vector2( -22.2838, -47.9822 )
+texture = ExtResource( 16 )
+texture_scale = 0.01
+color = Color( 1, 0, 0, 1 )
+energy = 2.0
+
+[node name="RightEye" type="Light2D" parent="."]
+position = Vector2( -6.0965, -50.977 )
+texture = ExtResource( 16 )
+texture_scale = 0.01
+color = Color( 1, 0, 0, 1 )
+energy = 2.0
 
 [node name="Rustling" parent="." instance=ExtResource( 15 )]
 visible = false
@@ -73,8 +165,23 @@ shape = SubResource( 3 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/face_left = SubResource( 4 )
+anims/face_right = SubResource( 5 )
 anims/identified = ExtResource( 1 )
+anims/idle = SubResource( 6 )
+anims/slow_walk = ExtResource( 17 )
 anims/unidentified = ExtResource( 14 )
+anims/walk = ExtResource( 18 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = ExtResource( 19 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Add2/add_amount = 0.5
+parameters/move_facing/facing_direction/playback = SubResource( 9 )
+parameters/move_facing/move/playback = SubResource( 10 )
+parameters/move_facing/move_facing/add_amount = 0.5
+parameters/status/playback = SubResource( 8 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 4 )
@@ -96,17 +203,3 @@ script = ExtResource( 9 )
 
 [node name="Identified" type="Node" parent="StateMachine"]
 script = ExtResource( 10 )
-
-[node name="LeftEye" type="Light2D" parent="."]
-position = Vector2( -22.2838, -47.9822 )
-texture = ExtResource( 16 )
-texture_scale = 0.01
-color = Color( 1, 0, 0, 1 )
-energy = 2.0
-
-[node name="RightEye" type="Light2D" parent="."]
-position = Vector2( -6.0965, -50.977 )
-texture = ExtResource( 16 )
-texture_scale = 0.01
-color = Color( 1, 0, 0, 1 )
-energy = 2.0

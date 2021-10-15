@@ -32,7 +32,7 @@ polygon = PoolVector2Array( -27.6465, -24.602, -25.9647, -40.9995, -20.4989, -67
 [sub_resource type="CircleShape2D" id=3]
 radius = 33.5303
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Sprite/LeftFoot:position:y")
 tracks/0/interp = 1
@@ -54,11 +54,11 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=5]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=6]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=8]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
 
 [node name="Spoopy" type="KinematicBody2D"]
 collision_layer = 4
@@ -77,6 +77,7 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -40 )
 z_index = 1
 texture = ExtResource( 13 )
@@ -101,6 +102,7 @@ region_enabled = true
 region_rect = Rect2( 1270, 83, 34, 19 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 position = Vector2( 0, 0.00329156 )
 occluder = SubResource( 2 )
 
@@ -125,7 +127,7 @@ radius = 92.0
 density = 30
 
 [node name="Motion" parent="." instance=ExtResource( 11 )]
-max_run_speed = 250.0
+max_run_speed = 150.0
 walk_stream = ExtResource( 12 )
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -141,7 +143,7 @@ disabled = true
 anims/face_left = ExtResource( 20 )
 anims/face_right = ExtResource( 21 )
 anims/identified = ExtResource( 1 )
-anims/idle = SubResource( 6 )
+anims/idle = SubResource( 4 )
 anims/slow_walk = ExtResource( 17 )
 anims/unidentified = ExtResource( 14 )
 anims/walk = ExtResource( 18 )
@@ -150,10 +152,10 @@ anims/walk = ExtResource( 18 )
 tree_root = ExtResource( 19 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/Add2/add_amount = 0.5
-parameters/move_facing/facing_direction/playback = SubResource( 9 )
-parameters/move_facing/move/playback = SubResource( 10 )
+parameters/move_facing/facing_direction/playback = SubResource( 5 )
+parameters/move_facing/move/playback = SubResource( 6 )
 parameters/move_facing/move_facing/add_amount = 0.5
-parameters/status/playback = SubResource( 8 )
+parameters/status/playback = SubResource( 7 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 4 )

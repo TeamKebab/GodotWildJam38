@@ -34,9 +34,11 @@ position = Vector2( 20.3882, -14.5203 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 0.9, 0.9 )
 smoothing_enabled = true
 
 [node name="Motion" parent="." instance=ExtResource( 7 )]
+gravity = 1500
 walk_stream = ExtResource( 4 )
 jump_stream = ExtResource( 5 )
 land_stream = ExtResource( 6 )

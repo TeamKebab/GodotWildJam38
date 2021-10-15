@@ -2,33 +2,33 @@
 
 [ext_resource path="res://spoopies/animations/move_facing.tres" type="AnimationNodeBlendTree" id=1]
 
-[sub_resource type="AnimationNodeAdd2" id=21]
+[sub_resource type="AnimationNodeAdd2" id=1]
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=2]
 animation = "identified"
 
-[sub_resource type="AnimationNodeAnimation" id=23]
+[sub_resource type="AnimationNodeAnimation" id=3]
 animation = "unidentified"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+[sub_resource type="AnimationNodeStateMachineTransition" id=4]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
 
-[sub_resource type="AnimationNodeStateMachine" id=26]
-states/identified/node = SubResource( 22 )
+[sub_resource type="AnimationNodeStateMachine" id=6]
+states/identified/node = SubResource( 2 )
 states/identified/position = Vector2( 337, 58 )
-states/unidentified/node = SubResource( 23 )
+states/unidentified/node = SubResource( 3 )
 states/unidentified/position = Vector2( 109, 61 )
-transitions = [ "unidentified", "identified", SubResource( 24 ), "identified", "unidentified", SubResource( 25 ) ]
+transitions = [ "unidentified", "identified", SubResource( 4 ), "identified", "unidentified", SubResource( 5 ) ]
 start_node = "unidentified"
 
 [resource]
 graph_offset = Vector2( 0, -47.25 )
-nodes/Add2/node = SubResource( 21 )
+nodes/Add2/node = SubResource( 1 )
 nodes/Add2/position = Vector2( 620, 20 )
 nodes/move_facing/node = ExtResource( 1 )
 nodes/move_facing/position = Vector2( 340, 0 )
 nodes/output/position = Vector2( 880, 20 )
-nodes/status/node = SubResource( 26 )
+nodes/status/node = SubResource( 6 )
 nodes/status/position = Vector2( 340, 120 )
 node_connections = [ "output", 0, "Add2", "Add2", 0, "move_facing", "Add2", 1, "status" ]

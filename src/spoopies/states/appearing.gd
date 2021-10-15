@@ -15,7 +15,7 @@ func enter() -> void:
 	emit_signal("finished", "Unlit")
 	
 	for eye in eyes:
-		eye.enabled = true
+		eye.show()
 		
 func exit() -> void:
 	rustling.queue_free()

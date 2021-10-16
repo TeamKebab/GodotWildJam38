@@ -11,7 +11,7 @@ func _ready():
 	rotation = randf() * 2 * PI
 	z_index = randi() % 5
 	modulate = Color(rand_range(0.7, 1), rand_range(0.7, 1), 0.1) 
-
+	rustle()
 
 func rustle():
 	var duration = 0.1
@@ -41,6 +41,4 @@ func rustle():
 	)
 	
 	tween.start()
-	yield(tween, "tween_all_completed")
-	rustle()
 	

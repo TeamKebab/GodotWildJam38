@@ -4,12 +4,13 @@
 [ext_resource path="res://levels/background/leaf.gd" type="Script" id=2]
 
 [node name="Sprite" type="Sprite"]
-modulate = Color( 0.756282, 0.718558, 0.1, 1 )
-rotation = 1.86037
-z_index = 4
+modulate = Color( 0.731207, 0.952561, 0.1, 1 )
+rotation = 3.50777
 texture = ExtResource( 1 )
 hframes = 2
 frame = 1
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true

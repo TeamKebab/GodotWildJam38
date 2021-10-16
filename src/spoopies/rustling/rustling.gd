@@ -57,8 +57,5 @@ func _add_leaf(leaf_position: Vector2) -> void:
 	leaf.scale = Vector2(0.6,0.6)
 	leaf.position = leaf_position + random_offset
 	leaves_container.add_child(leaf)
-	
-	yield(get_tree().create_timer(rand_range(0, 0.2)), "timeout")
-	leaf.rustle()
-	
+
 	

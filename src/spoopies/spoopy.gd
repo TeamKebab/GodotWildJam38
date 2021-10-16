@@ -28,7 +28,6 @@ var target: KinematicBody2D
 
 onready var sprite = $Sprite
 onready var collision = $CollisionShape2D
-onready var detector = $PlayerDetector
 onready var state_machine = $StateMachine
 onready var motion = $Motion
 onready var hitbox = $HitBox
@@ -38,7 +37,6 @@ onready var animationTree = $AnimationTree
 
 func _ready() -> void:
 	_set_disabled(true)
-	state_machine._change_state("Hidden")
 	hitbox.connect("area_entered", self, "_on_player_touched")
 	animationTree.active = true
 
@@ -53,7 +51,7 @@ func appear() -> void:
 	
 func light_on() -> void:
 	emit_signal("lit")
-
+								 
 
 func light_off() -> void:
 	emit_signal("unlit")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://spoopies/animations/identified.tres" type="Animation" id=1]
 [ext_resource path="res://spoopies/spoopy.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://components/state_machine/state_machine.gd" type="Script" id=4]
 [ext_resource path="res://spoopies/states/hidden.gd" type="Script" id=5]
 [ext_resource path="res://spoopies/states/unlit.gd" type="Script" id=6]
-[ext_resource path="res://components/state_machine/state.gd" type="Script" id=7]
 [ext_resource path="res://spoopies/states/appearing.gd" type="Script" id=8]
 [ext_resource path="res://spoopies/states/lit.gd" type="Script" id=9]
 [ext_resource path="res://spoopies/states/identified.gd" type="Script" id=10]
@@ -159,9 +158,6 @@ parameters/status/playback = SubResource( 7 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 4 )
-
-[node name="Init" type="Node" parent="StateMachine"]
-script = ExtResource( 7 )
 
 [node name="Hidden" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )

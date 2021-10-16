@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player/light/light.png" type="Texture" id=1]
 [ext_resource path="res://player/light/light.gd" type="Script" id=2]
 [ext_resource path="res://player/light/light_OFF.wav" type="AudioStream" id=3]
 [ext_resource path="res://player/light/light_ON.wav" type="AudioStream" id=4]
 [ext_resource path="res://components/raycast_overlap/raycast_overlap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://player/light/flashlight.png" type="Texture" id=6]
 
 [node name="Light" type="Node2D"]
 script = ExtResource( 2 )
@@ -28,7 +29,6 @@ shadow_filter = 5
 shadow_filter_smooth = 1.0
 
 [node name="DetectionArea" parent="." instance=ExtResource( 5 )]
-visible = false
 half_angle = 0.5
 detection_mask = 36
 collision_mask = 69
@@ -36,3 +36,7 @@ cast_radius = 400
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -1, 1 )
+texture = ExtResource( 6 )

@@ -26,3 +26,27 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( -15.75, -12.5 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("LeftEye:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.214, -36.312 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RightEye:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -16.469, -37.701 ) ]
+}

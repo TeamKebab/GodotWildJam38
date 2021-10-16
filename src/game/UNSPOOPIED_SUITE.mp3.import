@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/UNSPOOPIED_SUITE.mp3-ba660b375c69c0853a3fae5a0f42648d.mp3str"
+
+[deps]
+
+source_file="res://game/UNSPOOPIED_SUITE.mp3"
+dest_files=[ "res://.import/UNSPOOPIED_SUITE.mp3-ba660b375c69c0853a3fae5a0f42648d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

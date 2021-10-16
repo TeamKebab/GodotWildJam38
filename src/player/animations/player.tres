@@ -1,0 +1,61 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=16 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "fall"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=4]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[sub_resource type="AnimationNodeStateMachine" id=9]
+states/fall/node = SubResource( 1 )
+states/fall/position = Vector2( 591, 151 )
+states/idle/node = SubResource( 2 )
+states/idle/position = Vector2( 304, 151 )
+states/walk/node = SubResource( 3 )
+states/walk/position = Vector2( 444, 280 )
+transitions = [ "idle", "walk", SubResource( 4 ), "idle", "fall", SubResource( 5 ), "walk", "idle", SubResource( 6 ), "walk", "fall", SubResource( 7 ), "fall", "idle", SubResource( 8 ) ]
+start_node = "idle"
+
+[sub_resource type="AnimationNodeAdd2" id=10]
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "face_left"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "face_right"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachine" id=15]
+states/face_left/node = SubResource( 11 )
+states/face_left/position = Vector2( 383, 91 )
+states/face_right/node = SubResource( 12 )
+states/face_right/position = Vector2( 603, 91 )
+transitions = [ "face_right", "face_left", SubResource( 13 ), "face_left", "face_right", SubResource( 14 ) ]
+start_node = "face_right"
+
+[resource]
+graph_offset = Vector2( 0, 46.5 )
+nodes/action/node = SubResource( 9 )
+nodes/action/position = Vector2( -60, 260 )
+nodes/action_facing/node = SubResource( 10 )
+nodes/action_facing/position = Vector2( 180, 120 )
+nodes/facing_direction/node = SubResource( 15 )
+nodes/facing_direction/position = Vector2( -60, 120 )
+nodes/output/position = Vector2( 400, 120 )
+node_connections = [ "output", 0, "action_facing", "action_facing", 0, "facing_direction", "action_facing", 1, "action" ]

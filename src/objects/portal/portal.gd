@@ -3,6 +3,7 @@ extends StaticBody2D
 
 export(Game.Scene) var scene = Game.Scene.Level_01
 
+var open = false
 
 onready var collision = $CollisionShape2D
 onready var teleportArea = $TeleportArea
@@ -20,11 +21,13 @@ func light_on() -> void:
 
  
 func light_off() -> void:
-	animationPlayer.play("idle")
-	chargingSound.stop()
+	if !open:
+		animationPlayer.play("idle")
+		chargingSound.stop()
 	
 
 func _set_portal_active(value: bool) -> void:
+	open = value
 	teleportArea.get_child(0).disabled = !value
 	collision.disabled = value
 		

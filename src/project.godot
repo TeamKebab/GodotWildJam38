@@ -76,6 +76,8 @@ ui_down={
 2d_physics/layer_3="spoopies"
 2d_physics/layer_4="player hitbox"
 2d_physics/layer_5="spoopy hitbox"
+2d_physics/layer_6="lamps"
+2d_physics/layer_7="plants"
 
 [physics]
 

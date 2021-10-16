@@ -1,18 +1,68 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://objects/portal/portal.png" type="Texture" id=1]
 [ext_resource path="res://objects/portal/portal.gd" type="Script" id=2]
+[ext_resource path="res://objects/lamp/light.png" type="Texture" id=3]
+[ext_resource path="res://objects/debug_background/debug_background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/charging.tres" type="Animation" id=5]
+[ext_resource path="res://objects/portal/idle.tres" type="Animation" id=6]
+[ext_resource path="res://objects/lamp/lamp_getting_lit.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.25, 31 )
 
-[node name="Portal" type="Area2D"]
-collision_layer = 0
-collision_mask = 8
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 19.4672, 26.7233 )
+
+[node name="Portal" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 0
 script = ExtResource( 2 )
+
+[node name="DebugBG" parent="." instance=ExtResource( 4 )]
+visible = false
+center_parent = false
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+hframes = 6
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/charging = ExtResource( 5 )
+anims/idle = ExtResource( 6 )
+
+[node name="TeleportArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportArea"]
+position = Vector2( -0.33371, 6.3405 )
+shape = SubResource( 4 )
+
+[node name="LeftLight" type="Light2D" parent="."]
+position = Vector2( -26.75, 31.5 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 3 )
+color = Color( 0.976471, 0.968627, 0.584314, 1 )
+energy = 0.5
+range_layer_min = -200
+range_layer_max = 200
+
+[node name="RightLight" type="Light2D" parent="."]
+position = Vector2( 26.75, 31.5 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 3 )
+color = Color( 0.976471, 0.968627, 0.584314, 1 )
+energy = 0.5
+range_layer_min = -200
+range_layer_max = 200
+
+[node name="ChargingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )

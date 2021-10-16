@@ -29,6 +29,7 @@ var max_battery: int = 200
 
 var player: KinematicBody2D
 var player_camera: Camera2D
+var flashlight_on = true
 
 onready var scene_loader = $SceneLoader
 

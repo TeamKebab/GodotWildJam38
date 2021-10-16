@@ -15,8 +15,11 @@ func _ready() -> void:
 	timer.connect("timeout", self, "_on_timer_timeout")
 	Game.connect("battery_out", self, "_on_battery_out")
 	
-	if light.enabled:
-		timer.start()
+	light.enabled = Game.flashlight_on
+	detection_area.enabled = Game.flashlight_on
+	
+	if !Game.flashlight_on:
+		timer.paused = true
 
 
 func _input(event):
@@ -32,19 +35,24 @@ func _point_to(point: Vector2) -> void:
 
 
 func _toggle() -> void:	
-	if not light.enabled and Game.battery == 0:
+	_turn_on(!Game.flashlight_on)
+
+	
+func _turn_on(value: bool) -> void:
+	if value and Game.battery == 0:
 		turn_off_sound.play()
 		return
 	
-	light.enabled = !light.enabled
-	detection_area.enabled = light.enabled
+	Game.flashlight_on = value
+	
+	light.enabled = Game.flashlight_on
+	detection_area.enabled = Game.flashlight_on
+	timer.paused =  !Game.flashlight_on
 		
-	if light.enabled:
+	if Game.flashlight_on:
 		turn_on_sound.play()
-		timer.start()
 	else:
 		turn_off_sound.play()
-		timer.stop()
 
 
 func _on_body_lit(body: PhysicsBody2D) -> void:

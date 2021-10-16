@@ -10,6 +10,7 @@ onready var damage_box = $DamageBox
 onready var animationTree = $AnimationTree
 onready var facing_direction_animation = animationTree.get("parameters/facing_direction/playback")
 onready var action_animation = animationTree.get("parameters/action/playback")
+onready var animation_player = $AnimationPlayer
 
 
 func _ready() -> void:
@@ -17,7 +18,7 @@ func _ready() -> void:
 	Game.player_camera = $Camera2D
 	
 	animationTree.active = true
-	
+		
 	
 func _physics_process(delta: float) -> void:
 	var input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -45,10 +46,12 @@ func scare() -> void:
 	
 	_set_invulnerable(true)
 	
-	yield(get_tree().create_timer(invulnerability_time), "timeout")
-	
-	_set_invulnerable(false)
-
+	if Game.player_lives > 0:
+		yield(get_tree().create_timer(invulnerability_time), "timeout")
+		_set_invulnerable(false)
+	else:
+		_faint()
+		
 
 func pause() -> void:
 	set_physics_process(false)
@@ -58,6 +61,14 @@ func pause() -> void:
 func resume() -> void:
 	set_physics_process(true)
 
+
+func _faint() -> void:
+	animationTree.active = false
+	animation_player.play("faint")
+	pause()
+	yield(animation_player, "animation_finished")
+	Game.game_over()
+	
 
 func _set_invulnerable(value: bool) -> void:
 	damage_box.get_child(0).call_deferred("set_disabled", value)

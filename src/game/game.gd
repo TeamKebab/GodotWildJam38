@@ -1,7 +1,6 @@
 extends Node
 
 signal player_lives_changed(lives)
-signal player_dead()
 
 signal battery_changed(battery)
 signal battery_out()
@@ -9,6 +8,7 @@ signal battery_out()
 enum Scene {
 	Level_01,
 	Level_02,
+	GameOver,
 }
 
 var player_lives: int setget _set_player_lives
@@ -17,10 +17,6 @@ func _set_player_lives(value: int) -> void:
 		return
 	player_lives = value
 	emit_signal("player_lives_changed", player_lives)
-	
-	if player_lives <= 0:
-		emit_signal("player_dead")
-		restart()
 	
 var max_player_lives: int = 3
 
@@ -42,6 +38,7 @@ func _ready() -> void:
 	scene_loader.scenes = {
 		Scene.Level_01 : "res://levels/game_levels/level_01.tscn",
 		Scene.Level_02 : "res://levels/game_levels/level_02.tscn",
+		Scene.GameOver: "res://levels/game_over/game_over.tscn"
 	}	
 
 
@@ -65,5 +62,9 @@ func restart() -> void:
 	go_to(Scene.Level_01)
 
 
+func game_over() -> void:
+	go_to(Scene.GameOver)
+	
+	
 func go_to(scene_id: int, startup_data = null) -> void:
 	scene_loader.load_scene(scene_id, startup_data)

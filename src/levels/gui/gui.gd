@@ -11,7 +11,7 @@ func _ready() -> void:
 	
 	Game.connect("battery_changed", self, "_on_battery_changed")
 	battery.max_value = Game.max_battery
-	battery.value = Game.battery
+	battery.value = Game.max_battery
 
 
 func _on_player_lives_changed(player_lives: int) -> void:
@@ -19,4 +19,4 @@ func _on_player_lives_changed(player_lives: int) -> void:
 
 
 func _on_battery_changed(battery_charge: int) -> void:
-	battery.value = battery_charge
+	battery.value = float(battery_charge) / Game.max_battery * (173-12) + 12

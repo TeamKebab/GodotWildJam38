@@ -32,6 +32,7 @@ onready var scene_loader = $SceneLoader
 func _ready() -> void:
 	_set_player_lives(max_player_lives)
 	battery = max_battery
+	emit_signal("battery_changed", battery)
 	
 	randomize()
 	

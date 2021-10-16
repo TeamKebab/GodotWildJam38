@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GodotWildJam38"
-run/main_scene="res://levels/game_levels/level_01.tscn"
+run/main_scene="res://levels/start_screen/start_screen.tscn"
 config/icon="res://icon.png"
 
 [autoload]

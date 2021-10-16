@@ -1,0 +1,118 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://levels/background/background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/start_screen/fake_state.gd" type="Script" id=2]
+[ext_resource path="res://objects/lamp/lamp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/platforms/JunldeDirtAutoTiles.tres" type="TileSet" id=4]
+[ext_resource path="res://player/player.png" type="Texture" id=5]
+[ext_resource path="res://spoopies/spoopy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/start_screen/title.png" type="Texture" id=7]
+[ext_resource path="res://levels/start_screen/title_light.png" type="Texture" id=8]
+[ext_resource path="res://levels/start_screen/start_screen.gd" type="Script" id=9]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
+
+[sub_resource type="Animation" id=4]
+resource_name = "flickering"
+length = 3.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("title/Light2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.456699, -0.00764757, 1, -0.25, 0, 0, -2.3851, 1.04267, -0.0966401, -0.326606, 0.847242, 0.57864, 1.00493, 0, -0.767326, 0.735173, 0.0125791, 1, -0.0941923, 0.608729, 0.0656583, -2.3116, 1, -0.099211, 1.86185, 0.172658, -29.912 ),
+"times": PoolRealArray( 0, 0.9, 1.1, 2, 2.8, 3 )
+}
+
+[node name="StartScreen" type="Node2D"]
+position = Vector2( 0, 15 )
+script = ExtResource( 9 )
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.407843, 0.345098, 0.588235, 1 )
+position = Vector2( -50, -50 )
+
+[node name="Background2" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.666667, 0.627451, 0.784314, 1 )
+position = Vector2( -60, -55 )
+
+[node name="Background3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -45, -40 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+format = 1
+tile_data = PoolIntArray( 65535, 0, 196608, 0, 0, 131076, 1, 0, 196609, 2, 0, 196609, 3, 0, 196609, 4, 0, 196609, 5, 0, 196609, 6, 0, 196609, 7, 0, 196609, 8, 0, 196609, 9, 0, 196609, 10, 0, 196609, 11, 0, 196609, 12, 0, 196609, 13, 0, 196609, 14, 0, 196609, 15, 0, 131076, 16, 0, 196610, 65536, 0, 65541, 65551, 0, 65541, 131072, 0, 65541, 131087, 0, 65541, 196608, 0, 65541, 196623, 0, 65541, 262144, 0, 131075, 262145, 0, 196609, 262146, 0, 196609, 262147, 0, 196609, 262148, 0, 196609, 262149, 0, 196609, 262150, 0, 196609, 262151, 0, 196609, 262152, 0, 196609, 262153, 0, 196609, 262154, 0, 196610, 262159, 0, 65541, 327680, 0, 65541, 327695, 0, 65541, 393216, 0, 65541, 393231, 0, 65541, 458752, 0, 65541, 458767, 0, 65541, 589823, 0, 196608, 524288, 0, 196611, 524289, 0, 196609, 524290, 0, 196609, 524291, 0, 196609, 524292, 0, 196609, 524293, 0, 196609, 524294, 0, 196609, 524295, 0, 196609, 524296, 0, 196609, 524297, 0, 196609, 524298, 0, 196609, 524299, 0, 196609, 524300, 0, 196609, 524301, 0, 196609, 524302, 0, 196609, 524303, 0, 196611, 524304, 0, 196610 )
+
+[node name="Lamp" parent="." instance=ExtResource( 3 )]
+position = Vector2( 172.712, 507.25 )
+start_lit = true
+
+[node name="Spoopy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 619.981, 520.281 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="Sprite" parent="Spoopy" index="2"]
+visible = true
+flip_h = false
+frame = 9
+
+[node name="LeftFoot" parent="Spoopy/Sprite" index="0"]
+position = Vector2( -25, 40 )
+flip_h = false
+
+[node name="RightFoot" parent="Spoopy/Sprite" index="1"]
+position = Vector2( 12, 40 )
+flip_h = false
+
+[node name="LightOccluder2D" parent="Spoopy" index="3"]
+visible = true
+position = Vector2( 0, 5 )
+
+[node name="LeftEye" parent="Spoopy" index="4"]
+position = Vector2( -22.2838, -44.9821 )
+
+[node name="RightEye" parent="Spoopy" index="5"]
+position = Vector2( -6.0965, -47.977 )
+
+[node name="AnimationTree" parent="Spoopy" index="10"]
+active = true
+parameters/move_facing/facing_direction/playback = SubResource( 1 )
+parameters/move_facing/move/playback = SubResource( 2 )
+parameters/status/playback = SubResource( 3 )
+
+[node name="Fake" type="Node" parent="Spoopy/StateMachine" index="0"]
+script = ExtResource( 2 )
+
+[node name="Player" type="Sprite" parent="."]
+position = Vector2( 349.679, 509.655 )
+rotation = -1.5708
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+hframes = 8
+frame = 7
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.12549, 0.12549, 0.2, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "flickering"
+anims/flickering = SubResource( 4 )
+
+[node name="title" type="Sprite" parent="."]
+position = Vector2( 407.126, 156.176 )
+texture = ExtResource( 7 )
+
+[node name="Light2D" type="Light2D" parent="title"]
+texture = ExtResource( 8 )
+color = Color( 1, 0.956863, 0.792157, 1 )
+energy = 0.424329
+
+[editable path="Spoopy"]

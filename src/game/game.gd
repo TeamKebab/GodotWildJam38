@@ -8,6 +8,7 @@ signal battery_out()
 enum Scene {
 	Level_01,
 	Level_02,
+	Start,
 	GameOver,
 }
 
@@ -39,6 +40,7 @@ func _ready() -> void:
 	scene_loader.scenes = {
 		Scene.Level_01 : "res://levels/game_levels/level_01.tscn",
 		Scene.Level_02 : "res://levels/game_levels/level_02.tscn",
+		Scene.Start: "res://levels/start_screen/start_screen.tscn",
 		Scene.GameOver: "res://levels/game_over/game_over.tscn"
 	}	
 
@@ -60,7 +62,7 @@ func charge_battery(charge: int) -> void:
 func restart() -> void:
 	_set_player_lives(max_player_lives)
 	battery = max_battery
-	go_to(Scene.Level_01)
+	go_to(Scene.Start)
 
 
 func game_over() -> void:

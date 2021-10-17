@@ -11,6 +11,7 @@ enum Scene {
 	Start,
 	GameOver,
 	Win,
+	Tutorial,
 }
 
 const main_score = preload("res://game/UNSPOOPIED_SUITE.mp3")
@@ -50,6 +51,7 @@ func _ready() -> void:
 		Scene.Start: "res://levels/start_screen/start_screen.tscn",
 		Scene.GameOver: "res://levels/game_over/game_over.tscn",
 		Scene.Win: "res://levels/win_screen/win_screen.tscn",
+		Scene.Tutorial: "res://levels/tutorial/tutorial.tscn" ,
 	}	
 	play_music(main_score)
 

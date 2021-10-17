@@ -155,6 +155,8 @@ parameters/move_facing/move/playback = SubResource( 6 )
 parameters/move_facing/move_facing/add_amount = 0.5
 parameters/status/playback = SubResource( 7 )
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 4 )
 

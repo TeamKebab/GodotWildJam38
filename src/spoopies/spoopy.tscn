@@ -62,12 +62,12 @@ tracks/1/keys = {
 [node name="Spoopy" type="KinematicBody2D"]
 collision_layer = 4
 script = ExtResource( 2 )
+detection_range = 600
 
 [node name="PlayerDetector" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 0, -41 )
-number_of_rays = 50
-cast_radius = 400
+number_of_rays = 80
+cast_radius = 600
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -81,7 +81,7 @@ position = Vector2( 0, -40 )
 z_index = 1
 texture = ExtResource( 13 )
 hframes = 13
-frame = 8
+frame = 11
 
 [node name="LeftFoot" type="Sprite" parent="Sprite"]
 position = Vector2( -25, 40 )
@@ -99,18 +99,18 @@ region_rect = Rect2( 1270, 83, 34, 19 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 visible = false
-position = Vector2( 0, 5 )
+position = Vector2( 0, 2 )
 occluder = SubResource( 2 )
 
 [node name="LeftEye" type="Light2D" parent="."]
-position = Vector2( -22.2838, -44.7921 )
+position = Vector2( -22.2838, -47.9822 )
 texture = ExtResource( 16 )
 texture_scale = 0.01
 color = Color( 1, 0, 0, 1 )
 energy = 2.0
 
 [node name="RightEye" type="Light2D" parent="."]
-position = Vector2( -6.0965, -47.977 )
+position = Vector2( -6.0965, -50.977 )
 texture = ExtResource( 16 )
 texture_scale = 0.01
 color = Color( 1, 0, 0, 1 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://levels/level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/tutorial/tutorial_move.png" type="Texture" id=2]
@@ -378,12 +378,6 @@ resource_local_to_scene = true
 } ]
 0/z_index = 0
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=50]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=51]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=52]
-
 [node name="Level" instance=ExtResource( 1 )]
 script = ExtResource( 10 )
 
@@ -410,28 +404,7 @@ position = Vector2( 5132.69, 696.457 )
 
 [node name="Spoopy" parent="." index="6" instance=ExtResource( 8 )]
 position = Vector2( 3220.5, 619.182 )
-
-[node name="PlayerDetector" parent="Spoopy" index="0"]
-visible = true
-number_of_rays = 100
-cast_radius = 800
-
-[node name="Sprite" parent="Spoopy" index="2"]
-frame = 11
-
-[node name="LightOccluder2D" parent="Spoopy" index="3"]
-position = Vector2( 0, 2 )
-
-[node name="LeftEye" parent="Spoopy" index="4"]
-position = Vector2( -22.2838, -47.9822 )
-
-[node name="RightEye" parent="Spoopy" index="5"]
-position = Vector2( -6.0965, -50.977 )
-
-[node name="AnimationTree" parent="Spoopy" index="10"]
-parameters/move_facing/facing_direction/playback = SubResource( 50 )
-parameters/move_facing/move/playback = SubResource( 51 )
-parameters/status/playback = SubResource( 52 )
+detection_range = 800
 
 [node name="MoveInstructions" parent="." index="7" instance=ExtResource( 4 )]
 position = Vector2( 179.655, 598.335 )
@@ -466,5 +439,3 @@ position = Vector2( -50.1868, 646.771 )
 
 [node name="Portal" parent="." index="17" instance=ExtResource( 12 )]
 position = Vector2( 4835.49, 673.286 )
-
-[editable path="Spoopy"]

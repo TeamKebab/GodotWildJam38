@@ -11,6 +11,12 @@ signal lit
 signal unlit
 signal identified
 
+export var detection_range = 400 setget _set_detection_range
+func _set_detection_range(value: int) -> void:
+	detection_range = value
+	if $PlayerDetector != null:
+		$PlayerDetector.cast_radius = detection_range
+
 
 var disabled setget _set_disabled
 func _set_disabled(value: bool) -> void:
@@ -36,6 +42,7 @@ onready var shadow = $LightOccluder2D
 onready var animationTree = $AnimationTree
 
 func _ready() -> void:
+	$PlayerDetector.cast_radius = detection_range
 	_set_disabled(true)
 	hitbox.connect("area_entered", self, "_on_player_touched")
 	animationTree.active = true

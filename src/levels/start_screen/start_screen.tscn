@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://levels/background/background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/start_screen/fake_state.gd" type="Script" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://levels/start_screen/title.png" type="Texture" id=7]
 [ext_resource path="res://levels/start_screen/title_light.png" type="Texture" id=8]
 [ext_resource path="res://levels/start_screen/start_screen.gd" type="Script" id=9]
+[ext_resource path="res://levels/start_screen/team_kebab_light.png" type="Texture" id=10]
+[ext_resource path="res://levels/start_screen/team_kebab.png" type="Texture" id=11]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -63,13 +65,13 @@ scale = Vector2( 1.5, 1.5 )
 frame = 6
 
 [node name="LightOccluder2D" parent="Spoopy" index="3"]
-position = Vector2( 0, 1.99889 )
+position = Vector2( 0, 0.00536485 )
 
 [node name="LeftEye" parent="Spoopy" index="4"]
-position = Vector2( -22.2838, -51.7847 )
+position = Vector2( -22.2838, -51.9747 )
 
 [node name="RightEye" parent="Spoopy" index="5"]
-position = Vector2( -6.0965, -52.8453 )
+position = Vector2( -6.0965, -52.972 )
 
 [node name="AnimationTree" parent="Spoopy" index="10"]
 parameters/move_facing/facing_direction/playback = SubResource( 1 )
@@ -102,5 +104,14 @@ texture = ExtResource( 7 )
 texture = ExtResource( 8 )
 color = Color( 1, 0.956863, 0.792157, 1 )
 energy = 1.17337
+
+[node name="TeamKebab" type="Sprite" parent="."]
+position = Vector2( 631.361, 227.552 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 11 )
+
+[node name="Light2D" type="Light2D" parent="TeamKebab"]
+texture = ExtResource( 10 )
+color = Color( 1, 0.956863, 0.792157, 1 )
 
 [editable path="Spoopy"]

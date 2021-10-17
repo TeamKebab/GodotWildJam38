@@ -80,40 +80,37 @@ visible = false
 position = Vector2( 0, -40 )
 z_index = 1
 texture = ExtResource( 13 )
-flip_h = true
 hframes = 13
-frame = 6
+frame = 8
 
 [node name="LeftFoot" type="Sprite" parent="Sprite"]
-position = Vector2( 22, 40 )
+position = Vector2( -25, 40 )
 z_index = -1
 texture = ExtResource( 13 )
-flip_h = true
 region_enabled = true
 region_rect = Rect2( 1229, 86, 34, 16 )
 
 [node name="RightFoot" type="Sprite" parent="Sprite"]
-position = Vector2( -12, 40 )
+position = Vector2( 12, 40 )
 z_index = -1
 texture = ExtResource( 13 )
-flip_h = true
 region_enabled = true
 region_rect = Rect2( 1270, 83, 34, 19 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 visible = false
-position = Vector2( 0, 0.00329156 )
+position = Vector2( 0, 5 )
 occluder = SubResource( 2 )
 
 [node name="LeftEye" type="Light2D" parent="."]
-position = Vector2( 22.284, -51.9775 )
+position = Vector2( -22.2838, -44.7921 )
 texture = ExtResource( 16 )
 texture_scale = 0.01
 color = Color( 1, 0, 0, 1 )
 energy = 2.0
 
 [node name="RightEye" type="Light2D" parent="."]
-position = Vector2( 6.096, -52.974 )
+position = Vector2( -6.0965, -47.977 )
 texture = ExtResource( 16 )
 texture_scale = 0.01
 color = Color( 1, 0, 0, 1 )
@@ -150,6 +147,7 @@ anims/walk = ExtResource( 18 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = ExtResource( 19 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/Add2/add_amount = 0.5
 parameters/move_facing/facing_direction/playback = SubResource( 5 )
 parameters/move_facing/move/playback = SubResource( 6 )

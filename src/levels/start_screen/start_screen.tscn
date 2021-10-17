@@ -59,31 +59,10 @@ start_lit = true
 position = Vector2( 619.981, 520.281 )
 scale = Vector2( 1.5, 1.5 )
 
-[node name="Sprite" parent="Spoopy" index="2"]
-visible = true
-flip_h = false
-frame = 9
-
-[node name="LeftFoot" parent="Spoopy/Sprite" index="0"]
-position = Vector2( -25, 40 )
-flip_h = false
-
-[node name="RightFoot" parent="Spoopy/Sprite" index="1"]
-position = Vector2( 12, 40 )
-flip_h = false
-
-[node name="LightOccluder2D" parent="Spoopy" index="3"]
-visible = true
-position = Vector2( 0, 5 )
-
 [node name="LeftEye" parent="Spoopy" index="4"]
-position = Vector2( -22.2838, -44.9821 )
-
-[node name="RightEye" parent="Spoopy" index="5"]
-position = Vector2( -6.0965, -47.977 )
+position = Vector2( -22.2838, -44.7995 )
 
 [node name="AnimationTree" parent="Spoopy" index="10"]
-active = true
 parameters/move_facing/facing_direction/playback = SubResource( 1 )
 parameters/move_facing/move/playback = SubResource( 2 )
 parameters/status/playback = SubResource( 3 )
@@ -113,6 +92,6 @@ texture = ExtResource( 7 )
 [node name="Light2D" type="Light2D" parent="title"]
 texture = ExtResource( 8 )
 color = Color( 1, 0.956863, 0.792157, 1 )
-energy = 0.424329
+energy = 1.17337
 
 [editable path="Spoopy"]

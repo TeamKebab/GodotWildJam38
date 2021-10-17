@@ -9,7 +9,9 @@ func _set_enabled(value: bool) -> void:
 	
 	charging_area.enabled = value
 	
-	if not enabled:
+	if enabled:
+		Game.lit_lamps += 1
+	else:
 		area_light.energy = 0
 		bulb_light.energy = 0
 		
@@ -42,8 +44,9 @@ func _ready() -> void:
 		bulb_light.energy = 2
 		for light in light_balls:
 			light.lit_up()
-	
+		Game.lit_lamps -= 1
 	else:
+		Game.max_lamps += 1
 		_set_enabled(false)
 
 

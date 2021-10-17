@@ -39,7 +39,7 @@ func _ready() -> void:
 	_set_disabled(true)
 	hitbox.connect("area_entered", self, "_on_player_touched")
 	animationTree.active = true
-
+	Game.max_spoopies += 1
 
 func player_detected() -> void:
 	emit_signal("player_detected")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://objects/debug_background/debug_background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/win_screen/numbers/light-0.png" type="Texture" id=2]
+[ext_resource path="res://levels/win_screen/numbers/digits.png" type="Texture" id=3]
+[ext_resource path="res://levels/win_screen/numbers/digit.gd" type="Script" id=4]
+
+[node name="Digit" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="DebugBG" parent="." instance=ExtResource( 1 )]
+visible = false
+center_parent = false
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 2 )
+color = Color( 0.392157, 0.698039, 0.894118, 1 )
+energy = 1.5
+range_layer_min = -100
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+hframes = 10

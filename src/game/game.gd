@@ -10,7 +10,10 @@ enum Scene {
 	Level_02,
 	Start,
 	GameOver,
+	Win,
 }
+
+const main_score = preload("res://game/UNSPOOPIED_SUITE.mp3")
 
 var player_lives: int setget _set_player_lives
 func _set_player_lives(value: int) -> void:
@@ -24,6 +27,10 @@ var max_player_lives: int = 3
 var battery: int  
 var max_battery: int = 200
 
+var identified_spoopies = 0
+var max_spoopies = -1
+var lit_lamps = 0
+var max_lamps = 0
 var player: KinematicBody2D
 var player_camera: Camera2D
 var flashlight_on = true
@@ -41,9 +48,10 @@ func _ready() -> void:
 		Scene.Level_01 : "res://levels/game_levels/level_01.tscn",
 		Scene.Level_02 : "res://levels/game_levels/level_02.tscn",
 		Scene.Start: "res://levels/start_screen/start_screen.tscn",
-		Scene.GameOver: "res://levels/game_over/game_over.tscn"
+		Scene.GameOver: "res://levels/game_over/game_over.tscn",
+		Scene.Win: "res://levels/win_screen/win_screen.tscn",
 	}	
-
+	play_music(main_score)
 
 func drain_battery(drain: int) -> void:
 	battery = int(max(0, battery - drain))
@@ -62,11 +70,23 @@ func charge_battery(charge: int) -> void:
 func restart() -> void:
 	_set_player_lives(max_player_lives)
 	battery = max_battery
+	identified_spoopies = 0
+	lit_lamps = 0
+	max_spoopies = -1
+	max_lamps = 0
+	flashlight_on = true
+	
+	play_music(main_score)
 	go_to(Scene.Start)
 
 
 func game_over() -> void:
 	go_to(Scene.GameOver)
+	
+
+func play_music(stream: AudioStream) -> void:
+	$AudioStreamPlayer.stream = stream
+	$AudioStreamPlayer.play()
 	
 	
 func go_to(scene_id: int, startup_data = null) -> void:

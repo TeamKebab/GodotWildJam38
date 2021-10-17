@@ -9,7 +9,10 @@ var previous_direction = 0
 
 func direction() -> float:
 	var x = spoopy.target.position.x - spoopy.position.x
-	return x / abs(x)
+	if x == 0:
+		return x
+	else:
+		return x / abs(x)
 
 func face(direction: float) -> void:
 	if direction < 0:

@@ -1,0 +1,133 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://levels/background/parallax_background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/lamp/light_ball.png" type="Texture" id=2]
+[ext_resource path="res://objects/lamp/lamp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/platforms/JunldeDirtAutoTiles.tres" type="TileSet" id=4]
+[ext_resource path="res://objects/lamp/light.png" type="Texture" id=5]
+[ext_resource path="res://objects/lamp/lamp.png" type="Texture" id=6]
+[ext_resource path="res://levels/win_screen/screen.png" type="Texture" id=7]
+[ext_resource path="res://spoopies/spritesheet.png" type="Texture" id=8]
+[ext_resource path="res://levels/win_screen/win_screen.gd" type="Script" id=9]
+[ext_resource path="res://levels/win_screen/numbers/number.tscn" type="PackedScene" id=10]
+[ext_resource path="res://levels/win_screen/numbers/separator.png" type="Texture" id=11]
+[ext_resource path="res://levels/win_screen/numbers/light-1.png" type="Texture" id=12]
+
+[node name="WinScreen" type="Node2D"]
+position = Vector2( 0, 15 )
+script = ExtResource( 9 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
+offset = Vector2( -300, -250 )
+transform = Transform2D( 1, 0, 0, 1, -300, -250 )
+tiles = Vector2( 3, 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 6, 1, 0, 196609, 2, 0, 196609, 3, 0, 196609, 4, 0, 196609, 5, 0, 196609, 6, 0, 196609, 7, 0, 196609, 8, 0, 196609, 9, 0, 196609, 10, 0, 196609, 11, 0, 196609, 12, 0, 196609, 13, 0, 196609, 14, 0, 196609, 15, 0, 7, 65536, 0, 65541, 65551, 0, 65541, 131072, 0, 65541, 131087, 0, 65541, 196608, 0, 65541, 196623, 0, 65541, 262144, 0, 65541, 262159, 0, 65541, 327680, 0, 65541, 327695, 0, 65541, 393216, 0, 65541, 393222, 0, 6, 393223, 0, 196609, 393224, 0, 196609, 393225, 0, 7, 393231, 0, 65541, 458752, 0, 65541, 458758, 0, 65541, 458761, 0, 65541, 458767, 0, 65541, 524288, 0, 65542, 524289, 0, 196609, 524290, 0, 196609, 524291, 0, 196609, 524292, 0, 196609, 524293, 0, 196609, 524294, 0, 196611, 524295, 0, 196609, 524296, 0, 196609, 524297, 0, 196611, 524298, 0, 196609, 524299, 0, 196609, 524300, 0, 196609, 524301, 0, 196609, 524302, 0, 196609, 524303, 0, 65543 )
+
+[node name="Lamp" parent="." instance=ExtResource( 3 )]
+position = Vector2( 172.712, 507.25 )
+start_lit = true
+
+[node name="Lamp2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 848.03, 508.51 )
+start_lit = true
+
+[node name="screen" type="Sprite" parent="."]
+position = Vector2( 521, 310 )
+texture = ExtResource( 7 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.12549, 0.12549, 0.2, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="light" type="Sprite" parent="."]
+position = Vector2( 409.407, 234.258 )
+rotation = 2.49757
+scale = Vector2( 0.072, 0.072 )
+texture = ExtResource( 5 )
+
+[node name="lamp" type="Sprite" parent="."]
+position = Vector2( 411.527, 244.154 )
+scale = Vector2( 0.06, 0.06 )
+texture = ExtResource( 6 )
+
+[node name="light_ball" type="Sprite" parent="lamp"]
+position = Vector2( -35.3081, -155.813 )
+texture = ExtResource( 2 )
+
+[node name="light_ball2" type="Sprite" parent="lamp"]
+modulate = Color( 1, 0.921569, 0.294118, 1 )
+position = Vector2( -135.309, -34.9805 )
+rotation = 2.49757
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="light_ball3" type="Sprite" parent="lamp"]
+modulate = Color( 1, 0.466667, 0.176471, 1 )
+position = Vector2( 76.041, -377.033 )
+rotation = 2.49757
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="spoopy" type="Sprite" parent="."]
+position = Vector2( 411.713, 358.84 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 8 )
+flip_h = true
+hframes = 13
+frame = 1
+
+[node name="feet" type="Sprite" parent="spoopy"]
+position = Vector2( -6.25, 0 )
+texture = ExtResource( 8 )
+flip_h = true
+hframes = 13
+frame = 12
+
+[node name="LampsCounter" parent="." instance=ExtResource( 10 )]
+position = Vector2( 505.468, 241.337 )
+digits = 2
+value = 0
+
+[node name="LampsMax" parent="." instance=ExtResource( 10 )]
+position = Vector2( 632.468, 241.337 )
+digits = 2
+value = 0
+
+[node name="SpoopyCounter" parent="." instance=ExtResource( 10 )]
+position = Vector2( 505.468, 361.337 )
+digits = 2
+value = 0
+
+[node name="SpoopyMax" parent="." instance=ExtResource( 10 )]
+position = Vector2( 632.468, 361.337 )
+digits = 2
+value = 0
+
+[node name="Separator" type="Sprite" parent="."]
+position = Vector2( 575.348, 234.393 )
+rotation = 0.365653
+scale = Vector2( 1.3, 1.5 )
+texture = ExtResource( 11 )
+
+[node name="Light2D" type="Light2D" parent="Separator"]
+texture = ExtResource( 12 )
+color = Color( 0.392157, 0.698039, 0.894118, 1 )
+energy = 1.5
+range_layer_min = -100
+
+[node name="Separator2" type="Sprite" parent="."]
+position = Vector2( 576.055, 354.601 )
+rotation = 0.365653
+scale = Vector2( 1.3, 1.5 )
+texture = ExtResource( 11 )
+
+[node name="Light2D" type="Light2D" parent="Separator2"]
+texture = ExtResource( 12 )
+color = Color( 0.392157, 0.698039, 0.894118, 1 )
+energy = 1.5
+range_layer_min = -100

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://components/raycast_overlap/raycast_overlap.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 100.0
 
 [node name="Overlap" type="Node2D"]
 script = ExtResource( 1 )
@@ -8,8 +11,9 @@ detection_mask = 2
 collision_mask = 3
 cast_radius = 100
 
-[node name="Rays" type="Node2D" parent="."]
-
 [node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource( 1 )

@@ -14,8 +14,8 @@ signal identified
 export var detection_range = 400 setget _set_detection_range
 func _set_detection_range(value: int) -> void:
 	detection_range = value
-	if $PlayerDetector != null:
-		$PlayerDetector.cast_radius = detection_range
+	if player_detector != null:
+		player_detector.cast_radius = detection_range
 
 
 var disabled setget _set_disabled
@@ -38,6 +38,7 @@ onready var state_machine = $StateMachine
 onready var motion = $Motion
 onready var hitbox = $HitBox
 onready var shadow = $LightOccluder2D
+onready var player_detector = $PlayerDetector
 
 onready var animationTree = $AnimationTree
 

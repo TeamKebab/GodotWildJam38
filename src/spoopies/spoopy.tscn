@@ -68,6 +68,7 @@ detection_range = 600
 visible = false
 position = Vector2( 0, -41 )
 number_of_rays = 80
+collision_mask = 1
 cast_radius = 600
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

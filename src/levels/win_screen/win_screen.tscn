@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://levels/background/parallax_background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/lamp/light_ball.png" type="Texture" id=2]
@@ -12,6 +12,11 @@
 [ext_resource path="res://levels/win_screen/numbers/number.tscn" type="PackedScene" id=10]
 [ext_resource path="res://levels/win_screen/numbers/separator.png" type="Texture" id=11]
 [ext_resource path="res://levels/win_screen/numbers/light-1.png" type="Texture" id=12]
+[ext_resource path="res://player/player.png" type="Texture" id=13]
+[ext_resource path="res://levels/win_screen/player.gd" type="Script" id=14]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 17.8774
 
 [node name="WinScreen" type="Node2D"]
 position = Vector2( 0, 15 )
@@ -21,6 +26,7 @@ script = ExtResource( 9 )
 offset = Vector2( -300, -250 )
 transform = Transform2D( 1, 0, 0, 1, -300, -250 )
 tiles = Vector2( 3, 2 )
+canvas_modulate = Color( 0.12549, 0.12549, 0.2, 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
@@ -38,9 +44,6 @@ start_lit = true
 [node name="screen" type="Sprite" parent="."]
 position = Vector2( 521, 310 )
 texture = ExtResource( 7 )
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.12549, 0.12549, 0.2, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -131,3 +134,19 @@ texture = ExtResource( 12 )
 color = Color( 0.392157, 0.698039, 0.894118, 1 )
 energy = 1.5
 range_layer_min = -100
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 208, 161 )
+script = ExtResource( 14 )
+rotation_speed = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 1 )
+
+[node name="player" type="Sprite" parent="Player"]
+texture = ExtResource( 13 )
+hframes = 8
+frame = 6
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.12549, 0.12549, 0.2, 1 )

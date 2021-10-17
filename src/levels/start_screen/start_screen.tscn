@@ -59,8 +59,17 @@ start_lit = true
 position = Vector2( 619.981, 520.281 )
 scale = Vector2( 1.5, 1.5 )
 
+[node name="Sprite" parent="Spoopy" index="2"]
+frame = 6
+
+[node name="LightOccluder2D" parent="Spoopy" index="3"]
+position = Vector2( 0, 1.99889 )
+
 [node name="LeftEye" parent="Spoopy" index="4"]
-position = Vector2( -22.2838, -44.7995 )
+position = Vector2( -22.2838, -51.7847 )
+
+[node name="RightEye" parent="Spoopy" index="5"]
+position = Vector2( -6.0965, -52.8453 )
 
 [node name="AnimationTree" parent="Spoopy" index="10"]
 parameters/move_facing/facing_direction/playback = SubResource( 1 )

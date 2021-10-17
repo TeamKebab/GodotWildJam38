@@ -72,5 +72,5 @@ position = Vector2( 481.225, 21.3691 )
 position = Vector2( -150.201, 840.968 )
 
 [node name="Portal" parent="." index="20" instance=ExtResource( 4 )]
-position = Vector2( 1346.87, -230.077 )
+position = Vector2( 1347.37, -213.077 )
 scene = 1

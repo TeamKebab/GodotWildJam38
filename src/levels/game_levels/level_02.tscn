@@ -122,3 +122,4 @@ position = Vector2( 17.272, 3015.25 )
 
 [node name="Portal" parent="." index="35" instance=ExtResource( 4 )]
 position = Vector2( 934.347, 744.795 )
+scene = 4

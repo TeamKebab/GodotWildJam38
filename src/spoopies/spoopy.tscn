@@ -65,6 +65,7 @@ script = ExtResource( 2 )
 detection_range = 600
 
 [node name="PlayerDetector" parent="." instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 0, -41 )
 number_of_rays = 80
 cast_radius = 600
